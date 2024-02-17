@@ -1,14 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.JOM.Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.JOM.Day" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/darkSidebarColor</item>
-        <item name="colorPrimaryVariant">@color/darkPrimaryColorLight</item>
-        <item name="colorOnPrimary">@color/darkBodyColor</item>
+        <item name="colorPrimary">@color/lightSidebarColor</item>
+        <item name="colorPrimaryVariant">@color/lightPrimaryColorLight</item>
+        <item name="colorOnPrimary">@color/lightBodyColor</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/darkPrimaryColor</item>
-        <item name="colorSecondaryVariant">@color/darkModeColor</item>
-        <item name="colorOnSecondary">@color/darkToggleColor</item>
+        <item name="colorSecondary">@color/lightPrimaryColor</item>
+        <item name="colorSecondaryVariant">@color/lightModeColor</item>
+        <item name="colorOnSecondary">@color/lightToggleColor</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
