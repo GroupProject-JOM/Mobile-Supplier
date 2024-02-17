@@ -14,6 +14,63 @@
         android:theme="@style/Theme.JOM.Light"
         tools:targetApi="31">
         <activity
+            android:name=".bank.ViewBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.EditBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.AddBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.ViewAllBanksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.EditAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.AddAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.ViewAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.ViewAllAddressesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ProfileMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chat.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.YardCashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.YardBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.PickupCashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.PickupBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.NewSupplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ViewProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
