@@ -12,4 +12,18 @@
         <item name="android:fontFamily">@font/inter_semibold</item>
         <item name="android:textColor">@color/lightProfileValue</item>
     </style>
+    <style name="bottomButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginStart">45dp</item>
+        <item name="android:layout_marginEnd">45dp</item>
+        <item name="cornerRadius">13dp</item>
+    </style>
+    <style name="disableButton">
+
+    </style>
+    <style name="selectedButton">
+
+    </style>
 </resources>
