@@ -71,18 +71,20 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp">
 
                 <TextView
                     android:id="@+id/date_label"
+                    style="@style/profileLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Feasible Date"
-                    style="@style/profileLabel"
                     android:layout_marginStart="45dp"
                     android:layout_marginTop="60dp"
+                    android:text="Feasible Date"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
                 <EditText
                     android:id="@+id/date"
                     android:layout_width="250dp"
@@ -91,25 +93,25 @@
                     android:inputType="date"
                     app:layout_constraintStart_toStartOf="@+id/date_label"
                     app:layout_constraintTop_toBottomOf="@+id/date_label" />
+
                 <ImageView
                     android:id="@+id/date_icon"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="30dp"
-                    app:layout_constraintVertical_bias="0.5"
-                    app:srcCompat="@drawable/icon_calendar"
                     app:layout_constraintStart_toEndOf="@+id/date"
-                    app:layout_constraintTop_toBottomOf="@+id/date_label"/>
-
+                    app:layout_constraintTop_toBottomOf="@+id/date_label"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_calendar" />
 
 
                 <TextView
                     android:id="@+id/time_label"
+                    style="@style/profileLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Feasible Time"
-                    style="@style/profileLabel"
                     android:layout_marginTop="40dp"
+                    android:text="Feasible Time"
                     app:layout_constraintStart_toStartOf="@+id/date"
                     app:layout_constraintTop_toBottomOf="@+id/date" />
 
@@ -127,27 +129,28 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="30dp"
-                    app:layout_constraintVertical_bias="0.5"
-                    app:srcCompat="@drawable/icon_clock"
                     app:layout_constraintStart_toEndOf="@+id/time"
-                    app:layout_constraintTop_toBottomOf="@+id/time_label"/>
+                    app:layout_constraintTop_toBottomOf="@+id/time_label"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_clock" />
 
                 <TextView
                     android:id="@+id/bank_label"
+                    style="@style/profileLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bank Account"
-                    style="@style/profileLabel"
                     android:layout_marginTop="40dp"
+                    android:text="Bank Account"
                     app:layout_constraintStart_toStartOf="@+id/time"
                     app:layout_constraintTop_toBottomOf="@+id/time" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/bank"
                     android:layout_width="250dp"
                     android:layout_height="40dp"
-                    android:ems="10"
-                    android:inputType="text"
+                    android:entries="@array/months"
+                    android:scrollbarAlwaysDrawHorizontalTrack="false"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
                     app:layout_constraintStart_toStartOf="@+id/bank_label"
                     app:layout_constraintTop_toBottomOf="@+id/bank_label" />
 
@@ -156,29 +159,27 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="30dp"
-                    app:layout_constraintVertical_bias="0.5"
-                    app:srcCompat="@drawable/icon_bank"
                     app:layout_constraintStart_toEndOf="@+id/bank"
-                    app:layout_constraintTop_toBottomOf="@+id/bank_label"/>
+                    app:layout_constraintTop_toBottomOf="@+id/bank_label"
+                    app:srcCompat="@drawable/icon_bank" />
 
 
                 <TextView
                     android:id="@+id/supply_text2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
                     android:text="Please deliver the coconuts to this location:"
                     android:textSize="16sp"
-                    android:layout_marginTop="40dp"
                     app:layout_constraintStart_toStartOf="@+id/bank"
                     app:layout_constraintTop_toBottomOf="@+id/bank" />
-
 
                 <TextView
                     android:id="@+id/supply_text3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/jom_address"
                     android:layout_marginTop="40dp"
+                    android:text="@string/jom_address"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/supply_text2"
                     app:layout_constraintTop_toBottomOf="@+id/supply_text2" />
@@ -188,10 +189,10 @@
                     android:id="@+id/supply_text4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="A cash payment for the collected coconuts will be made upon the collection."
-                    android:layout_marginTop="40dp"
                     android:layout_marginStart="45dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginEnd="20dp"
+                    android:text="A cash payment for the collected coconuts will be made upon the collection."
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/supply_text3"
                     app:layout_constraintTop_toBottomOf="@+id/supply_text3" />
@@ -200,11 +201,13 @@
                 <Button
                     android:id="@+id/next"
                     style="@style/bottomButton"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="70dp"
                     android:text="Submit Request"
-                    android:textStyle="bold"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@+id/supply_text4"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/supply_text4" />
 
 

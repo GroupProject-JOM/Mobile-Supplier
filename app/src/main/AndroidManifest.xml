@@ -45,23 +45,24 @@
             android:exported="false" />
         <activity
             android:name=".supply.YardCashActivity"
-            android:exported="true">
+            android:exported="false" />
 
+        <activity
+            android:name=".supply.YardBankActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".supply.PickupCashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.PickupBankActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".supply.YardBankActivity"
-            android:exported="false" />
-        <activity
-            android:name=".supply.PickupCashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".supply.PickupBankActivity"
-            android:exported="false" />
         <activity
             android:name=".supply.NewSupplyActivity"
             android:exported="false" />
@@ -80,11 +81,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
     </application>
 
