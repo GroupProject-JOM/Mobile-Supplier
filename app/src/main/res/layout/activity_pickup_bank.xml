@@ -83,14 +83,24 @@
                     android:layout_marginTop="60dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-                <EditText
+                <Spinner
                     android:id="@+id/estate_location"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="40dp"
-                    android:ems="10"
-                    android:inputType="text"
+                    android:entries="@array/months"
+                    android:scrollbarAlwaysDrawHorizontalTrack="false"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
                     app:layout_constraintStart_toStartOf="@+id/estate_location_label"
                     app:layout_constraintTop_toBottomOf="@+id/estate_location_label" />
+                <ImageView
+                    android:id="@+id/location_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_location"
+                    app:layout_constraintStart_toEndOf="@+id/estate_location"
+                    app:layout_constraintTop_toBottomOf="@+id/estate_location_label"/>
 
                 <TextView
                     android:id="@+id/date_label"
@@ -103,13 +113,22 @@
                     app:layout_constraintTop_toBottomOf="@+id/estate_location" />
                 <EditText
                     android:id="@+id/date"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="40dp"
                     android:ems="10"
                     android:inputType="date"
                     app:layout_constraintStart_toStartOf="@+id/date_label"
                     app:layout_constraintTop_toBottomOf="@+id/date_label" />
 
+                <ImageView
+                    android:id="@+id/date_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_calendar"
+                    app:layout_constraintStart_toEndOf="@+id/date"
+                    app:layout_constraintTop_toBottomOf="@+id/date_label"/>
 
 
                 <TextView
@@ -124,12 +143,22 @@
 
                 <EditText
                     android:id="@+id/time"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="40dp"
                     android:ems="10"
                     android:inputType="time"
                     app:layout_constraintStart_toStartOf="@+id/time_label"
                     app:layout_constraintTop_toBottomOf="@+id/time_label" />
+                <ImageView
+                    android:id="@+id/time_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_clock"
+                    app:layout_constraintStart_toEndOf="@+id/time"
+                    app:layout_constraintTop_toBottomOf="@+id/time_label"/>
+
 
 
                 <TextView
@@ -142,20 +171,30 @@
                     app:layout_constraintStart_toStartOf="@+id/time"
                     app:layout_constraintTop_toBottomOf="@+id/time" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/bank"
-                    android:layout_width="300dp"
+                    android:layout_width="250dp"
                     android:layout_height="40dp"
-                    android:ems="10"
-                    android:inputType="text"
+                    android:entries="@array/months"
+                    android:scrollbarAlwaysDrawHorizontalTrack="false"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
                     app:layout_constraintStart_toStartOf="@+id/bank_label"
                     app:layout_constraintTop_toBottomOf="@+id/bank_label" />
+
+                <ImageView
+                    android:id="@+id/bank_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    app:layout_constraintStart_toEndOf="@+id/bank"
+                    app:layout_constraintTop_toBottomOf="@+id/bank_label"
+                    app:srcCompat="@drawable/icon_bank" />
 
 
                 <Button
                     android:id="@+id/next"
                     style="@style/bottomButton"
-                    android:layout_marginTop="300dp"
+                    android:layout_marginTop="150dp"
                     android:text="Submit Request"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/bank_label"
