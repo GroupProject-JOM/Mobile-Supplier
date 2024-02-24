@@ -45,7 +45,11 @@
             android:exported="false" />
         <activity
             android:name=".supply.YardCashActivity"
-            android:exported="false" />
+            android:exported="false">
+
+
+
+        </activity>
 
         <activity
             android:name=".supply.YardBankActivity"
@@ -56,6 +60,14 @@
             android:exported="false" />
         <activity
             android:name=".supply.PickupBankActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".supply.NewSupplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.EditProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,12 +75,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".supply.NewSupplyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".profile.EditProfileActivity"
-            android:exported="false" />
         <activity
             android:name=".profile.ViewProfileActivity"
             android:exported="false" />
