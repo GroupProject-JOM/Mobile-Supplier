@@ -16,28 +16,17 @@
 
         <ImageView
             android:id="@+id/back_button"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="13dp"
+            style="@style/backButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/icon_back" />
+            app:srcCompat="@drawable/icon_chevron" />
 
         <TextView
             android:id="@+id/page_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginBottom="9dp"
+            style="@style/pageTitle"
             android:text="New Supply"
-            android:textColor="@color/lightInputBorderFocus"
-            android:textSize="23sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_button"
             app:layout_constraintTop_toTopOf="parent"
@@ -85,8 +74,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
                 <Spinner
                     android:id="@+id/estate_location"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
+                    style="@style/supplyInput"
                     android:entries="@array/months"
                     android:scrollbarAlwaysDrawHorizontalTrack="false"
                     android:scrollbarAlwaysDrawVerticalTrack="false"
@@ -95,9 +83,7 @@
 
                 <ImageView
                     android:id="@+id/location_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="30dp"
+                    style="@style/supplyInputIcon"
                     app:layout_constraintVertical_bias="0.5"
                     app:srcCompat="@drawable/icon_location"
                     app:layout_constraintStart_toEndOf="@+id/estate_location"
@@ -114,8 +100,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/estate_location" />
                 <EditText
                     android:id="@+id/date"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
+                    style="@style/supplyInput"
                     android:ems="10"
                     android:inputType="date"
                     app:layout_constraintStart_toStartOf="@+id/date_label"
@@ -123,9 +108,7 @@
 
                 <ImageView
                     android:id="@+id/date_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="30dp"
+                    style="@style/supplyInputIcon"
                     app:layout_constraintVertical_bias="0.5"
                     app:srcCompat="@drawable/icon_calendar"
                     app:layout_constraintStart_toEndOf="@+id/date"
@@ -145,8 +128,7 @@
 
                 <EditText
                     android:id="@+id/time"
-                    android:layout_width="250dp"
-                    android:layout_height="40dp"
+                    style="@style/supplyInput"
                     android:ems="10"
                     android:inputType="time"
                     app:layout_constraintStart_toStartOf="@+id/time_label"
@@ -166,9 +148,7 @@
 
                 <ImageView
                     android:id="@+id/time_icon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="30dp"
+                    style="@style/supplyInputIcon"
                     app:layout_constraintVertical_bias="0.5"
                     app:srcCompat="@drawable/icon_clock"
                     app:layout_constraintStart_toEndOf="@+id/time"
