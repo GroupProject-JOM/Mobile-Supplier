@@ -4,6 +4,8 @@
         <item name="android:layout_height">63dp</item> <!-- Change the height as needed -->
     </style>
     <style name="profileLabel">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/lightProfileLabel</item>
     </style>
@@ -54,5 +56,9 @@
         <item name="android:layout_height">25dp</item>
         <item name="android:layout_marginStart">20dp</item>
 
+    </style>
+    <style name="editProfileInput">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">300dp</item>
     </style>
 </resources>
