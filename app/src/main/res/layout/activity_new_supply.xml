@@ -104,21 +104,24 @@
 
                 <Button
                     android:id="@+id/pickup"
-                    android:layout_width="wrap_content"
+                    style="@style/disableButton"
+                    android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="20dp"
                     android:text="Pickup at Estate"
-                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"
-                    app:layout_constraintStart_toStartOf="@+id/collection_method_label" />
+                    app:layout_constraintStart_toStartOf="@+id/collection_method_label"
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label" />
 
                 <Button
                     android:id="@+id/yard"
+                    style="@style/selectedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
                     android:text="Delivered to Yard"
-                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"
-                    app:layout_constraintStart_toEndOf="@+id/pickup" />
+                    app:layout_constraintStart_toEndOf="@+id/pickup"
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label" />
 
                 <TextView
                     android:id="@+id/payment_method_label"
@@ -132,43 +135,48 @@
 
                 <Button
                     android:id="@+id/cash"
+                    style="@style/selectedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginTop="20dp"
                     android:text="Cash"
-                    app:layout_constraintTop_toBottomOf="@+id/payment_method_label"
-                    app:layout_constraintStart_toStartOf="@+id/payment_method_label" />
+                    app:layout_constraintStart_toStartOf="@+id/payment_method_label"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_method_label" />
 
                 <Button
                     android:id="@+id/bank"
+                    style="@style/disableButton"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
+                    android:layout_marginStart="40dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginStart="10dp"
                     android:text="Bank Transfer"
-                    app:layout_constraintTop_toBottomOf="@+id/payment_method_label"
-                    app:layout_constraintStart_toEndOf="@+id/cash" />
+                    app:layout_constraintStart_toEndOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_method_label" />
 
 
                 <TextView
                     android:id="@+id/supply_text1"
+                    style="@style/profileLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="45dp"
-                    android:text="Fill up the details correctly for your supply request. Requests will be reviewed within 24 hours. You can check them inside your dashboard."
-                    style="@style/profileLabel"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="45dp"
+                    android:text="Fill up the details correctly for your supply request. Requests will be reviewed within 24 hours. You can check them inside your dashboard."
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/cash"
                     app:layout_constraintTop_toBottomOf="@+id/bank" />
 
 
                 <Button
                     android:id="@+id/next"
-                    android:layout_marginTop="250dp"
                     style="@style/bottomButton"
+                    android:layout_marginTop="100dp"
                     android:text="Next"
-                    app:layout_constraintTop_toBottomOf="@+id/supply_text1"
-                    app:layout_constraintStart_toStartOf="@+id/cash" />
+                    app:layout_constraintStart_toStartOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/supply_text1" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
