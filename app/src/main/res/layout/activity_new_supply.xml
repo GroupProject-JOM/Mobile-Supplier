@@ -80,6 +80,14 @@
                     android:inputType="numberDecimal"
                     app:layout_constraintStart_toStartOf="@+id/coco_amount_label"
                     app:layout_constraintTop_toBottomOf="@+id/coco_amount_label" />
+                <TextView
+                    android:id="@+id/coco_amount_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/coco_amount"
+                    app:layout_constraintTop_toBottomOf="@+id/coco_amount" />
 
                 <TextView
                     android:id="@+id/collection_method_label"
@@ -91,26 +99,32 @@
                     app:layout_constraintStart_toStartOf="@+id/coco_amount"
                     app:layout_constraintTop_toBottomOf="@+id/coco_amount" />
 
-                <Button
+
+                <CheckBox
                     android:id="@+id/pickup"
-                    style="@style/disableButton"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="Pickup at Estate"
                     app:layout_constraintStart_toStartOf="@+id/collection_method_label"
-                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"/>
 
-                <Button
+                <CheckBox
                     android:id="@+id/yard"
-                    style="@style/selectedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Delivered to Yard"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Pickup at Estate"
                     app:layout_constraintStart_toEndOf="@+id/pickup"
-                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label" />
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"/>
+
+                <TextView
+                    android:id="@+id/collection_method_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/pickup"
+                    app:layout_constraintTop_toBottomOf="@+id/pickup" />
 
                 <TextView
                     android:id="@+id/payment_method_label"
@@ -122,27 +136,34 @@
                     app:layout_constraintStart_toStartOf="@+id/pickup"
                     app:layout_constraintTop_toBottomOf="@+id/pickup" />
 
-                <Button
+
+                <CheckBox
                     android:id="@+id/cash"
-                    style="@style/selectedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content"
                     android:text="Cash"
                     app:layout_constraintStart_toStartOf="@+id/payment_method_label"
                     app:layout_constraintTop_toBottomOf="@+id/payment_method_label" />
 
-                <Button
+
+                <CheckBox
                     android:id="@+id/bank"
-                    style="@style/disableButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="40dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Bank Transfer"
+                    android:layout_height="wrap_content"
+                    android:text="Bank"
+                    android:layout_marginStart="81dp"
                     app:layout_constraintStart_toEndOf="@+id/cash"
                     app:layout_constraintTop_toBottomOf="@+id/payment_method_label" />
 
+
+                <TextView
+                    android:id="@+id/payment_method_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/cash" />
 
                 <TextView
                     android:id="@+id/supply_text1"
@@ -166,6 +187,7 @@
                     android:text="Next"
                     app:layout_constraintStart_toStartOf="@+id/cash"
                     app:layout_constraintTop_toBottomOf="@+id/supply_text1" />
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
