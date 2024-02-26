@@ -181,5 +181,59 @@
         app:layout_constraintStart_toStartOf="@+id/address_3"
         app:layout_constraintTop_toBottomOf="@+id/address_3" />
 
+    <TextView
+        android:id="@+id/fname_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/first_name"
+        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+
+    <TextView
+        android:id="@+id/lname_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/last_name"
+        app:layout_constraintTop_toBottomOf="@+id/last_name" />
+
+    <TextView
+        android:id="@+id/phone_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/contact"
+        app:layout_constraintTop_toBottomOf="@+id/contact" />
+
+    <TextView
+        android:id="@+id/street_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/address_2"
+        app:layout_constraintTop_toBottomOf="@+id/address_2" />
+
+    <TextView
+        android:id="@+id/city_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/address_3"
+        app:layout_constraintTop_toBottomOf="@+id/address_3" />
+
+    <TextView
+        android:id="@+id/address_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/address_1"
+        app:layout_constraintTop_toBottomOf="@+id/address_1" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
