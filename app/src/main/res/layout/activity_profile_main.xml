@@ -217,15 +217,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
+        style="@style/buttonSimple"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/profile_widget"
-        app:layout_constraintTop_toBottomOf="@+id/profile_widget"
-        android:textSize="22sp"
         android:layout_marginTop="30dp"
+        android:text="Log out"
         android:textColor="@color/lightBodyColor"
-        style="@style/buttonSimple"
-        android:text="Log out"/>
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/profile_widget"
+        app:layout_constraintTop_toBottomOf="@+id/profile_widget" />
 
 
 
