@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.jom.supplier">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,12 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JOM.Light"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".supply.ViewSupplyActivity"
+            android:exported="false" />
+        <activity
             android:name=".bank.ViewBankActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".bank.EditBankActivity"
             android:exported="false" />
@@ -41,46 +46,28 @@
             android:exported="false" />
         <activity
             android:name=".profile.ProfileMainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".chat.ChatActivity"
             android:exported="false" />
         <activity
             android:name=".supply.YardCashActivity"
-            android:exported="false">
-
-
-
-        </activity>
-
+            android:exported="false" />
         <activity
             android:name=".supply.YardBankActivity"
             android:exported="false" />
-
         <activity
             android:name=".supply.PickupCashActivity"
             android:exported="false" />
         <activity
             android:name=".supply.PickupBankActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".supply.NewSupplyActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".profile.EditProfileActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".profile.ViewProfileActivity"
             android:exported="false" />
@@ -92,12 +79,11 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

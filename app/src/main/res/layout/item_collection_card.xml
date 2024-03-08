@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="115dp"
     android:layout_gravity="center_horizontal"
     android:layout_marginStart="20dp"
     android:layout_marginLeft="20dp"
@@ -16,37 +16,36 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10.30 AM"
+            android:text="2024-02-25    10.30 AM"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@+id/city"
-            app:layout_constraintTop_toBottomOf="@+id/city" />
+            app:layout_constraintStart_toStartOf="@+id/supply_id"
+            app:layout_constraintTop_toBottomOf="@+id/supply_id" />
 
         <ImageView
             android:id="@+id/icon_cash"
             android:layout_width="20dp"
             android:layout_height="20sp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="16dp"
             android:src="@drawable/icon_cash"
-            app:layout_constraintEnd_toStartOf="@+id/payment_method"
-            app:layout_constraintTop_toTopOf="@+id/city"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/time"
             app:tint="@color/lightSidebarColor" />
 
         <TextView
-            android:id="@+id/city"
+            android:id="@+id/supply_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:text="Ahangama"
+            android:text="S/P/121"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -54,24 +53,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/payment_method"
+            android:id="@+id/supply_method"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
             android:text="Cash"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/icon_box"
-            app:layout_constraintTop_toTopOf="@+id/city" />
+            app:layout_constraintStart_toEndOf="@+id/icon_cash"
+            app:layout_constraintTop_toTopOf="@+id/icon_cash" />
 
         <ImageView
             android:id="@+id/icon_box"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginStart="30dp"
             android:src="@drawable/icon_box"
-            app:layout_constraintEnd_toStartOf="@+id/coconut_amount"
+            app:layout_constraintStart_toEndOf="@+id/supply_method"
             app:layout_constraintTop_toTopOf="@+id/icon_cash"
             app:tint="@color/lightSidebarColor" />
 
@@ -79,12 +77,23 @@
             android:id="@+id/coconut_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginStart="10dp"
             android:text="1000"
             android:textColor="#000000"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/payment_method" />
+            app:layout_constraintStart_toEndOf="@+id/icon_box"
+            app:layout_constraintTop_toTopOf="@+id/icon_box" />
+
+        <Button
+            android:id="@+id/status"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="Pending"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
