@@ -148,7 +148,7 @@ class DashboardActivity : AppCompatActivity() {
                         }
 
                         val OngoingCount: TextView = findViewById(R.id.widget02_value)
-                        OngoingCount.text = count.toString()
+                        OngoingCount.text = (ongoingList.length() - count).toString()
 
                         for (i in 0 until CompletedList.length()) {
                             val item = CompletedList.getJSONObject(i)
