@@ -43,114 +43,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-        <TextView
-            android:id="@+id/address_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="48dp"
-            android:text="Estate 01"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/topBarShadow" />
-
-
-    <TextView
-        android:id="@+id/address_1_label"
-        style="@style/profileLabel"
-        android:layout_marginTop="32dp"
-        android:text="Address Line 1"
-        app:layout_constraintStart_toStartOf="@+id/address_details"
-        app:layout_constraintTop_toBottomOf="@+id/address_details"/>
-
-    <TextView
-        android:id="@+id/address_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="48/16, Wijerama Road"
-        style="@style/profileValue"
-        app:layout_constraintStart_toStartOf="@+id/address_1_label"
-        app:layout_constraintTop_toBottomOf="@+id/address_1_label" />
-
-    <TextView
-        android:id="@+id/address_2_label"
-        style="@style/profileLabel"
-        android:layout_marginTop="32dp"
-        android:text="Street"
-        app:layout_constraintStart_toStartOf="@+id/address_1"
-        app:layout_constraintTop_toBottomOf="@+id/address_1" />
-
-
-    <TextView
-        android:id="@+id/address_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Udahamulla"
-        style="@style/profileValue"
-        app:layout_constraintStart_toStartOf="@+id/address_2_label"
-        app:layout_constraintTop_toBottomOf="@+id/address_2_label" />
-
-
-    <TextView
-        android:id="@+id/address_3_label"
-        style="@style/profileLabel"
-        android:layout_marginTop="32dp"
-        android:text="City"
-        app:layout_constraintStart_toStartOf="@+id/address_2"
-        app:layout_constraintTop_toBottomOf="@+id/address_2" />
-
-
-
-    <TextView
-        android:id="@+id/address_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Nugegoda"
-        style="@style/profileValue"
-        app:layout_constraintStart_toStartOf="@+id/address_3_label"
-        app:layout_constraintTop_toBottomOf="@+id/address_3_label" />
-
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:text="Edit"
-        app:layout_constraintStart_toStartOf="@+id/address_3"
-        app:layout_constraintTop_toBottomOf="@+id/address_3" />
+        app:layout_constraintStart_toStartOf="@+id/area_text"
+        app:layout_constraintTop_toBottomOf="@+id/area_text" />
+
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="50dp"
         android:text="Delete"
-        app:layout_constraintStart_toEndOf="@+id/save"
-        app:layout_constraintTop_toBottomOf="@+id/address_3" />
+        app:layout_constraintStart_toEndOf="@+id/edit"
+        app:layout_constraintTop_toTopOf="@+id/edit" />
 
     <View
         android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_above="@id/bottom_nav"
+        android:layout_above="@id/bottom_navigation"
         android:background="@drawable/shadow"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+        android:id="@+id/bottom_navigation"
         style="@style/BottomNavHeight"
         android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarShadow" />
+
+    <TextView
+        android:id="@+id/estate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="50dp"
+        android:text="Estate 01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
+    <TextView
+        android:id="@+id/address_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Address"
+        app:layout_constraintStart_toStartOf="@+id/estate"
+        app:layout_constraintTop_toBottomOf="@+id/estate" />
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="48/16,wijerama"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/address_text"
+        app:layout_constraintTop_toTopOf="@+id/address_text" />
+
+    <TextView
+        android:id="@+id/area_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Area"
+        app:layout_constraintStart_toStartOf="@+id/address_text"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <TextView
+        android:id="@+id/area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Moratuwa"
+        app:layout_constraintStart_toStartOf="@+id/address"
+        app:layout_constraintTop_toTopOf="@+id/area_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

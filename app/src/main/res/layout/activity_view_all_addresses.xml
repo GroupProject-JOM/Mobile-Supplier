@@ -44,70 +44,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/address_card"
-        style="@style/profileCard"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="45dp"
-        android:background="@drawable/button_bd"
-        app:layout_constraintStart_toStartOf="@+id/topBarShadow"
-        app:layout_constraintTop_toBottomOf="@+id/topBarShadow">
-
-        <ImageView
-            android:id="@+id/address_icon"
-            style="@style/profileCardIcon"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/icon_droppin" />
-
-        <TextView
-            android:id="@+id/address_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estate 01"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/address_icon"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <TextView
-            android:id="@+id/address_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No.25, Kirulapone Rd, Colombo 5"
-            android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@id/address_title"
-            app:layout_constraintTop_toBottomOf="@+id/address_title"/>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-
-
     <View
         android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_above="@id/bottom_nav"
+        android:layout_above="@id/bottom_navigation"
         android:background="@drawable/shadow"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         style="@style/BottomNavHeight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/address_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarShadow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

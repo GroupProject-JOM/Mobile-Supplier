@@ -197,6 +197,7 @@ class LoginActivity : AppCompatActivity() {
 
                                 var payload = methods.getPayload(jwt);
                                 val name = payload["name"]
+                                val lname = payload["lname"]
 
                                 // check if not a collector
                                 val role = payload["page"]
@@ -217,6 +218,8 @@ class LoginActivity : AppCompatActivity() {
                                 // After successful login, store the login status in SharedPreferences
                                 sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
                                 sharedPreferences.edit().putString("name", name.toString())
+                                    .apply()
+                                sharedPreferences.edit().putString("lname", lname.toString())
                                     .apply()
                             }
 
