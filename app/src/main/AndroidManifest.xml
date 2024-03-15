@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.jom.supplier">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,8 +14,75 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.JOM"
+        android:theme="@style/Theme.JOM.Light"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".report.ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.ViewSupplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.ViewBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.EditBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.AddBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bank.ViewAllBanksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.EditAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.AddAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.ViewAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".address.ViewAllAddressesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ProfileMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chat.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.YardCashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.YardBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.PickupCashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.PickupBankActivity"
+            android:exported="false" />
+        <activity
+            android:name=".supply.NewSupplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ViewProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

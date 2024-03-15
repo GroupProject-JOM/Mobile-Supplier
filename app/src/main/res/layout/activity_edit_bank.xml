@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".bank.EditBankActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            style="@style/backButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/icon_chevron" />
+
+        <TextView
+            android:id="@+id/page_title"
+            style="@style/pageTitle"
+            android:text="Edit Bank Details"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/topBarShadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/bottom_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+    <TextView
+        android:id="@+id/acc_holder_label"
+        style="@style/profileLabel"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="45dp"
+        android:text="Account holder's name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarShadow" />
+
+    <EditText
+        android:id="@+id/acc_holder"
+        style="@style/editProfileInput"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/acc_holder_label"
+        app:layout_constraintTop_toBottomOf="@+id/acc_holder_label" />
+
+
+    <TextView
+        android:id="@+id/nickname_label"
+        style="@style/profileLabel"
+        android:layout_marginTop="32dp"
+        android:text="Account nickname"
+        app:layout_constraintStart_toStartOf="@+id/acc_holder"
+        app:layout_constraintTop_toBottomOf="@+id/acc_holder" />
+
+    <EditText
+        android:id="@+id/nickname"
+        style="@style/editProfileInput"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/nickname_label"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_label" />
+
+    <TextView
+        android:id="@+id/acc_number_label"
+        style="@style/profileLabel"
+        android:layout_marginTop="32dp"
+        android:text="Account No."
+        app:layout_constraintStart_toStartOf="@+id/nickname"
+        app:layout_constraintTop_toBottomOf="@+id/nickname" />
+
+    <EditText
+        android:id="@+id/acc_number"
+        style="@style/editProfileInput"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="@+id/acc_number_label"
+        app:layout_constraintTop_toBottomOf="@+id/acc_number_label" />
+
+
+    <TextView
+        android:id="@+id/bank_label"
+        style="@style/profileLabel"
+        android:layout_marginTop="32dp"
+        android:text="Bank"
+        app:layout_constraintStart_toStartOf="@+id/acc_number"
+        app:layout_constraintTop_toBottomOf="@+id/acc_number" />
+
+    <EditText
+        android:id="@+id/bank"
+        style="@style/editProfileInput"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/bank_label"
+        app:layout_constraintTop_toBottomOf="@+id/bank_label" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/address_3_label"-->
+    <!--        style="@style/profileLabel"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:text="City"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/address_2"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/address_2" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/address_3"-->
+    <!--        style="@style/editProfileInput"-->
+    <!--        android:ems="10"-->
+    <!--        android:inputType="text"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/address_3_label"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/address_3_label" />-->
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:text="Save Changes"
+        app:layout_constraintStart_toStartOf="@+id/bank"
+        app:layout_constraintTop_toBottomOf="@+id/bank" />
+
+    <TextView
+        android:id="@+id/acc_holder_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/acc_holder"
+        app:layout_constraintTop_toBottomOf="@+id/acc_holder" />
+
+    <TextView
+        android:id="@+id/nickname_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/nickname"
+        app:layout_constraintTop_toBottomOf="@+id/nickname" />
+
+    <TextView
+        android:id="@+id/acc_number_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/acc_number"
+        app:layout_constraintTop_toBottomOf="@+id/acc_number" />
+
+    <TextView
+        android:id="@+id/bank_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/bank"
+        app:layout_constraintTop_toBottomOf="@+id/bank" />
+
+    <View
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_navigation"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        style="@style/BottomNavHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

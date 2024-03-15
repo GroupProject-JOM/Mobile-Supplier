@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".supply.YardCashActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            style="@style/backButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/icon_chevron" />
+
+        <TextView
+            android:id="@+id/page_title"
+            style="@style/pageTitle"
+            android:text="New Supply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/topBarShadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/bottom_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarShadow">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/date_label"
+                    style="@style/profileLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="60dp"
+                    android:text="Feasible Date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/date"
+                    style="@style/supplyInput"
+                    android:ems="10"
+                    android:inputType="date"
+                    app:layout_constraintStart_toStartOf="@+id/date_label"
+                    app:layout_constraintTop_toBottomOf="@+id/date_label" />
+
+                <ImageView
+                    android:id="@+id/date_icon"
+                    style="@style/supplyInputIcon"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_calendar"
+                    app:layout_constraintStart_toEndOf="@+id/date"
+                    app:layout_constraintTop_toBottomOf="@+id/date_label"/>
+
+
+                <TextView
+                    android:id="@+id/time_label"
+                    style="@style/profileLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Feasible Time"
+                    app:layout_constraintStart_toStartOf="@+id/date"
+                    app:layout_constraintTop_toBottomOf="@+id/date" />
+
+                <EditText
+                    android:id="@+id/time"
+                    style="@style/supplyInput"
+                    android:ems="10"
+                    android:inputType="time"
+                    app:layout_constraintStart_toStartOf="@+id/time_label"
+                    app:layout_constraintTop_toBottomOf="@+id/time_label" />
+
+                <ImageView
+                    android:id="@+id/time_icon"
+                    style="@style/supplyInputIcon"
+                    app:layout_constraintVertical_bias="0.5"
+                    app:srcCompat="@drawable/icon_clock"
+                    app:layout_constraintStart_toEndOf="@+id/time"
+                    app:layout_constraintTop_toBottomOf="@+id/time_label"/>
+
+
+                <TextView
+                    android:id="@+id/supply_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Please deliver the coconuts to this location:"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/time"
+                    app:layout_constraintTop_toBottomOf="@+id/time" />
+
+
+                <TextView
+                    android:id="@+id/supply_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/jom_address"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/supply_text2"
+                    app:layout_constraintTop_toBottomOf="@+id/supply_text2" />
+
+
+                <TextView
+                    android:id="@+id/supply_text4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="A cash payment for the collected coconuts will be made upon the collection."
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/supply_text3"
+                    app:layout_constraintTop_toBottomOf="@+id/supply_text3" />
+
+
+                <Button
+                    android:id="@+id/next"
+                    style="@style/bottomButton"
+                    android:layout_marginTop="100dp"
+                    android:text="Submit Request"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supply_text4" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_navigation"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        style="@style/BottomNavHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

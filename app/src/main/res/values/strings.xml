@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">JOM</string>
+    <string name="jom_address">Jayasinghe Oil Mills,\nNo 105, Ravita Road, Welpalla,\nSri Lanka.</string>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+    </string-array>
 </resources>

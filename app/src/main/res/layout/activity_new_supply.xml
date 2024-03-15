@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".supply.NewSupplyActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            style="@style/backButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/icon_chevron" />
+
+        <TextView
+            android:id="@+id/page_title"
+            style="@style/pageTitle"
+            android:text="New Supply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/topBarShadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/bottom_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarShadow">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/coco_amount_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Coconut Amount"
+                    style="@style/profileLabel"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <EditText
+                    android:id="@+id/coco_amount"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    app:layout_constraintStart_toStartOf="@+id/coco_amount_label"
+                    app:layout_constraintTop_toBottomOf="@+id/coco_amount_label" />
+                <TextView
+                    android:id="@+id/coco_amount_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/coco_amount"
+                    app:layout_constraintTop_toBottomOf="@+id/coco_amount" />
+
+                <TextView
+                    android:id="@+id/collection_method_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Collection Method"
+                    style="@style/profileLabel"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintStart_toStartOf="@+id/coco_amount"
+                    app:layout_constraintTop_toBottomOf="@+id/coco_amount" />
+
+
+                <CheckBox
+                    android:id="@+id/pickup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pickup at Estate"
+                    app:layout_constraintStart_toStartOf="@+id/collection_method_label"
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"/>
+
+                <CheckBox
+                    android:id="@+id/yard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Pickup at Estate"
+                    app:layout_constraintStart_toEndOf="@+id/pickup"
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"/>
+
+                <TextView
+                    android:id="@+id/collection_method_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/pickup"
+                    app:layout_constraintTop_toBottomOf="@+id/pickup" />
+
+                <TextView
+                    android:id="@+id/payment_method_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Method"
+                    style="@style/profileLabel"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintStart_toStartOf="@+id/pickup"
+                    app:layout_constraintTop_toBottomOf="@+id/pickup" />
+
+
+                <CheckBox
+                    android:id="@+id/cash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cash"
+                    app:layout_constraintStart_toStartOf="@+id/payment_method_label"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_method_label" />
+
+
+                <CheckBox
+                    android:id="@+id/bank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bank"
+                    android:layout_marginStart="81dp"
+                    app:layout_constraintStart_toEndOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/payment_method_label" />
+
+
+                <TextView
+                    android:id="@+id/payment_method_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/cash" />
+
+                <TextView
+                    android:id="@+id/supply_text1"
+                    style="@style/profileLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="45dp"
+                    android:text="Fill up the details correctly for your supply request. Requests will be reviewed within 24 hours. You can check them inside your dashboard."
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/bank" />
+
+
+                <Button
+                    android:id="@+id/next"
+                    style="@style/bottomButton"
+                    android:layout_marginTop="100dp"
+                    android:text="Next"
+                    app:layout_constraintStart_toStartOf="@+id/cash"
+                    app:layout_constraintTop_toBottomOf="@+id/supply_text1" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_navigation"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        style="@style/BottomNavHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
