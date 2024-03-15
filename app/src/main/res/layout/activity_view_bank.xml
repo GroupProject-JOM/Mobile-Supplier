@@ -139,14 +139,14 @@
         android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
         android:layout_height="4dp"
-        android:layout_above="@id/bottom_nav"
+        android:layout_above="@id/bottom_navigation"
         android:background="@drawable/shadow"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+        android:id="@+id/bottom_navigation"
         style="@style/BottomNavHeight"
         android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
