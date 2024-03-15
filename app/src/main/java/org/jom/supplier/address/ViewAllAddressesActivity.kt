@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.webkit.CookieManager
+import android.widget.Button
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,7 @@ class ViewAllAddressesActivity : AppCompatActivity() {
     private lateinit var recycleViewAddress: RecyclerView
     private lateinit var addressAdapter: AddressAdapter
     private lateinit var jwt: String
+    private lateinit var add: Button
 
     val addressItems = mutableListOf<AddressItem>()
 
@@ -132,6 +134,13 @@ class ViewAllAddressesActivity : AppCompatActivity() {
 
         addressAdapter = AddressAdapter(addressItems)
         recycleViewAddress.adapter = addressAdapter
+
+        // add address
+        add = findViewById(R.id.add)
+        add.setOnClickListener {
+            val intent = Intent(this, AddAddressActivity::class.java)
+            startActivity(intent)
+        }
 
         //back
         backButton = findViewById(R.id.back_button)

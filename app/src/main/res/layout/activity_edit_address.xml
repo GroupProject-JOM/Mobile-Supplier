@@ -132,8 +132,8 @@
         android:layout_height="wrap_content"
         android:textColor="#FF0000"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/save"
-        app:layout_constraintTop_toBottomOf="@+id/save" />
+        app:layout_constraintStart_toStartOf="@+id/estate_name"
+        app:layout_constraintTop_toBottomOf="@+id/estate_name" />
 
     <TextView
         android:id="@+id/address_error"

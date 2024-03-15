@@ -9,6 +9,7 @@ import android.webkit.CookieManager
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
@@ -23,6 +24,7 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -33,12 +35,20 @@ interface EstateApi {
     ): Call<ResponseBody>
 }
 
+interface EstateDeleteApi {
+    @DELETE("JOM_war_exploded/estate")
+    fun deleteData(
+        @Query("id") id: Int,
+    ): Call<ResponseBody>
+}
+
 class ViewAddressActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var backButton: ImageView
     private lateinit var jwt: String
     private lateinit var edit: Button
+    private lateinit var delete: Button
 
     // get instance of methods class
     val methods = Methods()
@@ -108,6 +118,7 @@ class ViewAddressActivity : AppCompatActivity() {
                         extras.putString("address", estate.getString("estate_address"))
                         extras.putString("area", estate.getString("area"))
                         extras.putString("location", estate.getString("estate_location"))
+                        extras.putInt("id", id)
                     }
                 } else if (response.code() == 202) {
                     Log.d("TAG", "No Estare")
@@ -128,12 +139,68 @@ class ViewAddressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_address)
 
-        // edit profile
+        // edit address
         edit = findViewById(R.id.edit)
         edit.setOnClickListener {
             val intent = Intent(this, EditAddressActivity::class.java)
             intent.putExtras(extras)
             startActivity(intent)
+        }
+
+        // delete address
+        delete = findViewById(R.id.delete)
+        delete.setOnClickListener {
+            // sweet alert for confirmation
+            SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("You won't be able to revert this!")
+                .setConfirmText("Delete")
+                .showCancelButton(true)
+                .setCancelText("✖")
+                .setConfirmClickListener { sDialog ->
+                    // Back to view all addresses
+                    val intent = Intent(this, ViewAllAddressesActivity::class.java)
+
+                    val estateDeleteApi = retrofit.create(EstateDeleteApi::class.java)
+
+                    // call delete data function to get data from backend
+                    estateDeleteApi.deleteData(id)
+                        .enqueue(object : retrofit2.Callback<ResponseBody> {
+                            override fun onResponse(
+                                call: Call<ResponseBody>, response: retrofit2.Response<ResponseBody>
+                            ) {
+                                if (response.code() == 200) {
+                                    Log.d("TAG", "Delete Estate")
+                                    Log.d("TAG", response.code().toString())
+
+                                    sDialog.setTitleText("Deleted!")
+                                        .setContentText("Your address has been deleted.")
+                                        .setConfirmText("Ok")
+                                        .showCancelButton(false)
+                                        .setConfirmClickListener {
+                                            // delete address successfully
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+
+                                } else if (response.code() == 202) {
+                                    Log.d("TAG", "Unable to Delete Estate")
+                                    Log.d("TAG", response.code().toString())
+                                } else {
+                                    Log.d("TAG", "Went wrong")
+                                    Log.d("TAG", response.code().toString())
+                                }
+                            }
+
+                            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                                // Handle failure
+                                Log.d("TAG", "An error occurred: $t")
+                            }
+
+                        });
+
+                }.show()
         }
 
         //back
