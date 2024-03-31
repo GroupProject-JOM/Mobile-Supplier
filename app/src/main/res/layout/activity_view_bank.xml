@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
     <TextView
-        android:id="@+id/nickname"
+        android:id="@+id/nickName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
@@ -63,11 +63,11 @@
         style="@style/profileLabel"
         android:layout_marginTop="32dp"
         android:text="Account holder's name"
-        app:layout_constraintStart_toStartOf="@+id/nickname"
-        app:layout_constraintTop_toBottomOf="@+id/nickname"/>
+        app:layout_constraintStart_toStartOf="@+id/nickName"
+        app:layout_constraintTop_toBottomOf="@+id/nickName"/>
 
     <TextView
-        android:id="@+id/acc_holder"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -81,12 +81,12 @@
         style="@style/profileLabel"
         android:layout_marginTop="32dp"
         android:text="Account number"
-        app:layout_constraintStart_toStartOf="@+id/acc_holder"
-        app:layout_constraintTop_toBottomOf="@+id/acc_holder" />
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
 
     <TextView
-        android:id="@+id/acc_number"
+        android:id="@+id/account_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -101,8 +101,8 @@
         style="@style/profileLabel"
         android:layout_marginTop="32dp"
         android:text="Bank"
-        app:layout_constraintStart_toStartOf="@+id/acc_number"
-        app:layout_constraintTop_toBottomOf="@+id/acc_number" />
+        app:layout_constraintStart_toStartOf="@+id/account_number"
+        app:layout_constraintTop_toBottomOf="@+id/account_number" />
 
 
 
@@ -118,7 +118,7 @@
 
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="50dp"
@@ -132,7 +132,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginStart="30dp"
         android:text="Delete"
-        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintStart_toEndOf="@+id/edit"
         app:layout_constraintTop_toBottomOf="@+id/bank" />
 
     <View
