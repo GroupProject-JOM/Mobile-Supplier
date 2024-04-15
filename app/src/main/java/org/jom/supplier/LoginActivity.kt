@@ -229,7 +229,7 @@ class LoginActivity : AppCompatActivity() {
                             passwordError.text = "Invalid Password!"
                             password.requestFocus()
                         } else if (response.code() == 401) {
-                            usernameError.text = "Invalid Username!"
+                            usernameError.text = "Invalid Username! or User is not validated!"
                             username.requestFocus()
                         } else {
                             // Handle error
@@ -254,6 +254,13 @@ class LoginActivity : AppCompatActivity() {
                 })
             }
 
+        }
+
+        // redirect to signup page
+        var signup: TextView = findViewById(R.id.signup)
+        signup.setOnClickListener {
+            val intent = Intent(this, SignupActivity::class.java)
+            startActivity(intent)
         }
     }
 }
