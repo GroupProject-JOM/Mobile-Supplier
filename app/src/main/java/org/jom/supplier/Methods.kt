@@ -107,4 +107,29 @@ class Methods {
         now.add(Calendar.DATE, -1)
         return selectedDate.after(now.time)
     }
+
+    fun checkInt(num: String): Boolean {
+        val parsedNum = num.toIntOrNull()
+        return parsedNum != null && parsedNum > 0
+    }
+
+    fun checkTwoWeeks(date: String): Boolean {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val selectedDate = dateFormat.parse(date)
+        val now = Calendar.getInstance()
+        now.add(Calendar.DATE, 14) // Add 14 days to current date
+
+        return selectedDate.after(now.time)
+    }
+
+    fun checkTime(time: String): Boolean {
+        val t = time.split(":")
+        val hour = t[0].toIntOrNull()
+        val min = t.getOrNull(1)?.toIntOrNull()
+
+        if (hour != null && min != null && hour in 8 until 17) {
+            return true
+        }
+        return false
+    }
 }
