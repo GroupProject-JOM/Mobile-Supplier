@@ -177,6 +177,42 @@
                     app:layout_constraintStart_toStartOf="@+id/bank_label"
                     app:layout_constraintTop_toBottomOf="@+id/bank_label" />
 
+                <TextView
+                    android:id="@+id/location_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/estate_location"
+                    app:layout_constraintTop_toBottomOf="@+id/estate_location" />
+
+                <TextView
+                    android:id="@+id/bank_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/bank"
+                    app:layout_constraintTop_toBottomOf="@+id/bank" />
+
+                <TextView
+                    android:id="@+id/date_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/date"
+                    app:layout_constraintTop_toBottomOf="@+id/date" />
+
+                <TextView
+                    android:id="@+id/time_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF0000"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/time"
+                    app:layout_constraintTop_toBottomOf="@+id/time" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

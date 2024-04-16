@@ -322,7 +322,7 @@ class DashboardActivity : AppCompatActivity() {
             rejected.setTextColor(ContextCompat.getColor(this, R.color.lightSidebarColor))
         }
 
-// bottom nav handler
+        // bottom nav handler
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.selectedItemId = R.id.nav_home
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->

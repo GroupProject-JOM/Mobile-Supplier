@@ -113,9 +113,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="Pickup at Estate"
+                    android:text="Delivered to Yard"
                     app:layout_constraintStart_toEndOf="@+id/pickup"
-                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label"/>
+                    app:layout_constraintTop_toBottomOf="@+id/collection_method_label" />
 
                 <TextView
                     android:id="@+id/collection_method_error"
