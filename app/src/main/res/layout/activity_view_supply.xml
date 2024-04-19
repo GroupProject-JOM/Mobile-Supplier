@@ -6,4 +6,316 @@
     android:layout_height="match_parent"
     tools:context=".supply.ViewSupplyActivity">
 
+
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toTopOf="@+id/bottomNavContainer"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/mapView" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp">
+
+        <TextView
+            android:id="@+id/request_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:text="Collection Details"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/estate_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Estate Address"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/request_details"
+            app:layout_constraintTop_toBottomOf="@+id/request_details" />
+
+        <TextView
+            android:id="@+id/estate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/collector_name"
+            app:layout_constraintTop_toTopOf="@+id/estate_text" />
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Pickup Date"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/estate_text"
+            app:layout_constraintTop_toBottomOf="@+id/estate" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/estate"
+            app:layout_constraintTop_toTopOf="@+id/date_text" />
+
+        <TextView
+            android:id="@+id/time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Pickup Time"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/date_text"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/date"
+            app:layout_constraintTop_toTopOf="@+id/time_text" />
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Coconut Count"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/time_text"
+            app:layout_constraintTop_toBottomOf="@+id/time" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/time"
+            app:layout_constraintTop_toTopOf="@+id/count_text" />
+
+        <TextView
+            android:id="@+id/payment_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Paymment Method"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/count_text"
+            app:layout_constraintTop_toBottomOf="@+id/final_count" />
+
+        <TextView
+            android:id="@+id/payment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/count"
+            app:layout_constraintTop_toTopOf="@+id/payment_text" />
+
+        <TextView
+            android:id="@+id/final_count_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Collected Count"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/count_text"
+            app:layout_constraintTop_toBottomOf="@+id/count_text" />
+
+        <TextView
+            android:id="@+id/final_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/count"
+            app:layout_constraintTop_toTopOf="@+id/final_count_text" />
+        <TextView
+            android:id="@+id/supply_method_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Supply Methods"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/payment_text"
+            app:layout_constraintTop_toBottomOf="@+id/payment" />
+
+        <TextView
+            android:id="@+id/supply_method"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/payment"
+            app:layout_constraintTop_toTopOf="@+id/supply_method_text" />
+
+        <TextView
+            android:id="@+id/collector_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Collector Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/supply_method_text"
+            app:layout_constraintTop_toBottomOf="@+id/supply_method_text" />
+
+        <TextView
+            android:id="@+id/collector_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/collector_name_text"
+            app:layout_constraintTop_toTopOf="@+id/collector_name_text" />
+
+        <TextView
+            android:id="@+id/collector_phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Collector Telephone"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/collector_name_text"
+            app:layout_constraintTop_toBottomOf="@+id/collector_name_text" />
+
+        <TextView
+            android:id="@+id/collector_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/collector_phone_text"
+            app:layout_constraintTop_toTopOf="@+id/collector_phone_text" />
+
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_marginTop="30dp"
+            android:text="Edit"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/collector_phone_text"
+            app:layout_constraintTop_toBottomOf="@+id/collector_phone_text" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:layout_marginStart="20dp"
+            android:text="Delete"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/edit"
+            app:layout_constraintTop_toTopOf="@+id/edit" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/back_button"
+        style="@style/backButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/icon_chevron"  />
+
+    <TextView
+        android:id="@+id/page_title"
+        style="@style/pageTitle"
+        android:text="Collection ID 001"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<View
+    android:id="@+id/bottomNavContainer"
+    android:layout_width="match_parent"
+    android:layout_height="4dp"
+    android:layout_above="@id/bottom_nav"
+    android:background="@drawable/shadow"
+    app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottom_nav"
+    android:layout_width="match_parent"
+    style="@style/BottomNavHeight"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:menu="@menu/nav_menu" />
+
+<com.google.android.gms.maps.MapView
+    android:id="@+id/mapView"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
