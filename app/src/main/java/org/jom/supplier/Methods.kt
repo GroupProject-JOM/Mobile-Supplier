@@ -11,6 +11,11 @@ import java.time.LocalTime
 import java.util.Base64
 import java.util.*
 import java.util.Locale
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.graphics.Color
+import androidx.core.app.NotificationCompat
 
 class Methods {
     private val backendUrl = "http://10.0.2.2:8090/"
