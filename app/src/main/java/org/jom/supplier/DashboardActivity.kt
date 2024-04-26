@@ -12,6 +12,7 @@ import android.view.View
 import android.webkit.CookieManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import java.time.LocalTime
+import android.app.AlertDialog
+import android.app.Dialog
 
 interface DashboardApi {
     @GET("JOM_war_exploded/collections")
@@ -45,6 +48,7 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var completedCollectionsAdapter: CollectionsAdapter
     private lateinit var rejectedCollectionsAdapter: CollectionsAdapter
     private lateinit var jwt: String
+    private lateinit var dialog: Dialog
 
     val ongoingCollectionItems = mutableListOf<CollectionItem>()
     val completedCollectionItems = mutableListOf<CollectionItem>()
@@ -53,9 +57,40 @@ class DashboardActivity : AppCompatActivity() {
     // get instance of methods class
     val methods = Methods()
 
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Initialize the dialog
+        dialog = Dialog(this, R.style.CustomDialogTheme)  // Apply custom theme (optional)
+        dialog.setContentView(R.layout.popup_layout)
+
+        // Set title and description (optional)
+        val titleTextView = dialog.findViewById<TextView>(R.id.title)
+        titleTextView.text = "Beautiful Popup"
+        val descriptionTextView = dialog.findViewById<TextView>(R.id.description)
+        descriptionTextView.text = "This is a more descriptive message for the popup."
+
+        // Get references to buttons
+        val positiveButton = dialog.findViewById<Button>(R.id.positive_button)
+        val negativeButton = dialog.findViewById<Button>(R.id.negative_button)
+
+        // Set button click listeners
+        positiveButton.setOnClickListener {
+            // Handle positive button click
+            dialog.dismiss()
+        }
+
+        negativeButton.setOnClickListener {
+            // Handle negative button click
+            dialog.dismiss()
+        }
+
+        // Create custom theme (optional)
+        val customTheme = theme.applyStyle(R.style.CustomDialogTheme, false)
+
+        // Show the dialog with custom theme (optional)
+//        dialog.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.popup_background))  // Set custom background (optional)
+        dialog.show()
+
         // get cookie operations
         val cookieManager = CookieManager.getInstance()
         val cookies = methods.getAllCookies(cookieManager)
@@ -362,5 +397,36 @@ class DashboardActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    fun showPopup(
+        context: Context,
+        title: String,
+        message: String,
+        positiveButtonText: String,
+        negativeButtonText: String,
+        positiveButtonAction: () -> Unit,
+        negativeButtonAction: () -> Unit
+    ) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(title)
+        builder.setMessage(message)
+
+        builder.setPositiveButton(positiveButtonText) { dialog, _ ->
+            positiveButtonAction.invoke()
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton(negativeButtonText) { dialog, _ ->
+            negativeButtonAction.invoke()
+            dialog.dismiss()
+        }
+
+        val dialog = builder.create()
+        dialog.show()
+
+        // Customize dialog view if needed
+        val textViewMessage = dialog.findViewById<TextView>(android.R.id.message)
+        // You can modify text view properties here if needed
     }
 }
