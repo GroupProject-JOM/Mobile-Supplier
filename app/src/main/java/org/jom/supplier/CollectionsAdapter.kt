@@ -1,6 +1,7 @@
 package org.jom.supplier
 
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,36 +52,30 @@ class CollectionsAdapter(private val collectionItems: List<CollectionItem>) :
         holder.statusButton.setText(currentItem.status.capitalize())
 
         if (currentItem.method == "yard") {
-            holder.collectionPaymentIcon.setImageResource(R.drawable.icon_droppin)
+            holder.collectionPaymentIcon.setImageResource(R.drawable.icon_truck)
         }
 
+        val context = holder.itemView.context
+
         if (currentItem.status == "pending") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightSidebarColor
-                )
+            holder.statusButton.background.setColorFilter(
+                ContextCompat.getColor(context, R.color.lightSidebarColor),
+                PorterDuff.Mode.SRC_ATOP
             )
         } else if (currentItem.status == "accept") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightAcceptYellow
-                )
+            holder.statusButton.background.setColorFilter(
+                ContextCompat.getColor(context, R.color.lightAcceptYellow),
+                PorterDuff.Mode.SRC_ATOP
             )
         } else if (currentItem.status == "ready") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightCompletedGreen
-                )
+            holder.statusButton.background.setColorFilter(
+                ContextCompat.getColor(context, R.color.lightCompletedGreen),
+                PorterDuff.Mode.SRC_ATOP
             )
         } else if (currentItem.status == "rejected") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightRejectRed
-                )
+            holder.statusButton.background.setColorFilter(
+                ContextCompat.getColor(context, R.color.lightRejectRed),
+                PorterDuff.Mode.SRC_ATOP
             )
         }
 
