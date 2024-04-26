@@ -54,7 +54,7 @@ class CollectionsAdapter(private val collectionItems: List<CollectionItem>) :
         holder.statusButton.setText(currentItem.status.capitalize())
 
         if (currentItem.method == "yard") {
-            holder.collectionPaymentIcon.setImageResource(R.drawable.icon_droppin)
+            holder.collectionPaymentIcon.setImageResource(R.drawable.icon_truck)
         }
 
         val backgroundColor = when (currentItem.status) {

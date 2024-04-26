@@ -85,4 +85,8 @@
     <style name="buttonSimple" parent="Widget.AppCompat.Button">
         <item name="android:textAllCaps">false</item>
     </style>
+    <style name="error_text">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/error_stroke_color</item>
+    </style>
 </resources>
