@@ -130,7 +130,6 @@
                 <Spinner
                     android:id="@+id/bank"
                     style="@style/supplyInput"
-                    android:entries="@array/months"
                     android:scrollbarAlwaysDrawHorizontalTrack="false"
                     android:scrollbarAlwaysDrawVerticalTrack="false"
                     app:layout_constraintStart_toStartOf="@+id/bank_label"
