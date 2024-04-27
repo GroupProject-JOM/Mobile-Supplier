@@ -92,7 +92,7 @@
             android:layout_marginBottom="10dp"
             android:text="Pending"
             android:textSize="10sp"
-            app:backgroundTint=""
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
