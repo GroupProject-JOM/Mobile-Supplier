@@ -31,6 +31,16 @@ import retrofit2.http.GET
 import java.time.LocalTime
 import android.app.AlertDialog
 import android.app.Dialog
+import cn.pedant.SweetAlert.SweetAlertDialog
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.WebSocket
+import okhttp3.WebSocketListener
+import java.util.concurrent.atomic.AtomicBoolean
 
 interface DashboardApi {
     @GET("JOM_war_exploded/collections")
@@ -59,38 +69,6 @@ class DashboardActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Initialize the dialog
-        dialog = Dialog(this, R.style.CustomDialogTheme)  // Apply custom theme (optional)
-        dialog.setContentView(R.layout.popup_layout)
-
-        // Set title and description (optional)
-        val titleTextView = dialog.findViewById<TextView>(R.id.title)
-        titleTextView.text = "Beautiful Popup"
-        val descriptionTextView = dialog.findViewById<TextView>(R.id.description)
-        descriptionTextView.text = "This is a more descriptive message for the popup."
-
-        // Get references to buttons
-        val positiveButton = dialog.findViewById<Button>(R.id.positive_button)
-        val negativeButton = dialog.findViewById<Button>(R.id.negative_button)
-
-        // Set button click listeners
-        positiveButton.setOnClickListener {
-            // Handle positive button click
-            dialog.dismiss()
-        }
-
-        negativeButton.setOnClickListener {
-            // Handle negative button click
-            dialog.dismiss()
-        }
-
-        // Create custom theme (optional)
-        val customTheme = theme.applyStyle(R.style.CustomDialogTheme, false)
-
-        // Show the dialog with custom theme (optional)
-//        dialog.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.popup_background))  // Set custom background (optional)
-        dialog.show()
-
         // get cookie operations
         val cookieManager = CookieManager.getInstance()
         val cookies = methods.getAllCookies(cookieManager)
@@ -397,36 +375,143 @@ class DashboardActivity : AppCompatActivity() {
                 else -> false
             }
         }
-    }
 
-    fun showPopup(
-        context: Context,
-        title: String,
-        message: String,
-        positiveButtonText: String,
-        negativeButtonText: String,
-        positiveButtonAction: () -> Unit,
-        negativeButtonAction: () -> Unit
-    ) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(title)
-        builder.setMessage(message)
+        //WebSocket
+        var payload = methods.getPayload(jwt);
 
-        builder.setPositiveButton(positiveButtonText) { dialog, _ ->
-            positiveButtonAction.invoke()
-            dialog.dismiss()
+        // assign values to socket operation variables
+        val senderId = methods.floatToInt(payload["user"])
+
+        runBlocking {
+            val socket = OkHttpClient().newWebSocket(
+                Request.Builder()
+                    .url("ws://10.0.2.2:8090/JOM_war_exploded/verify-amount/${senderId}")
+                    .build(),
+                object : WebSocketListener() {
+                    private val isConnected = AtomicBoolean(false)
+
+                    override fun onOpen(webSocket: WebSocket, response: Response) {
+                        println("WebSocket opened: $response")
+                        isConnected.set(true)
+                        CoroutineScope(Dispatchers.IO).launch {
+                            println("Socket Opened")
+                        }
+                    }
+
+                    override fun onMessage(webSocket: WebSocket, text: String) {
+                        println("WebSocket onMessage: $text")
+                        if (text.isNotEmpty()) {
+                            val arr = text.split(":")
+                            val amount = arr[0]
+                            val id = arr[1].toInt()
+
+                            runOnUiThread {
+                                // Initialize the dialog
+                                dialog = Dialog(
+                                    this@DashboardActivity,
+                                    R.style.CustomDialogTheme
+                                )  // Apply custom theme (optional)
+                                dialog.setContentView(R.layout.popup_layout)
+
+                                // Set title and description (optional)
+                                val titleTextView = dialog.findViewById<TextView>(R.id.title)
+                                titleTextView.text = "Collector is waiting for your response"
+                                val descriptionTextView =
+                                    dialog.findViewById<TextView>(R.id.description)
+                                descriptionTextView.text =
+                                    "Collected coconut amount for supply S/P/${id} is ${amount}"
+
+                                println("Collected coconut amount for supply S/P/${id} is ${amount}")
+
+                                // Get references to buttons
+                                val positiveButton =
+                                    dialog.findViewById<Button>(R.id.positive_button)
+                                val negativeButton =
+                                    dialog.findViewById<Button>(R.id.negative_button)
+
+                                // Set button click listeners
+                                positiveButton.setOnClickListener {
+                                    // Handle positive button click
+
+                                    SweetAlertDialog(
+                                        this@DashboardActivity,
+                                        SweetAlertDialog.SUCCESS_TYPE
+                                    )
+                                        .setTitleText("Are you sure?")
+                                        .setContentText("You won't be able to revert this!")
+                                        .setConfirmText("Accept")
+                                        .showCancelButton(true)
+                                        .setCancelText("✖")
+                                        .setConfirmClickListener { sDialog ->
+                                            sDialog.setTitleText("Accepted!")
+                                                .setContentText("You have verified that the amount of coconut entered by the collector is correct.")
+                                                .setConfirmText("Ok")
+                                                .showCancelButton(false)
+                                                .setConfirmClickListener {
+                                                    // complete collection with actual amount
+                                                    webSocket.send("${senderId}:OK:${id}")
+                                                    sDialog.dismiss();
+                                                }
+                                                .changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+                                        }.show()
+
+
+                                    dialog.dismiss()
+                                }
+
+                                negativeButton.setOnClickListener {
+                                    // Handle negative button click
+
+                                    SweetAlertDialog(
+                                        this@DashboardActivity,
+                                        SweetAlertDialog.SUCCESS_TYPE
+                                    )
+                                        .setTitleText("Are you sure?")
+                                        .setContentText("You won't be able to revert this!")
+                                        .setConfirmText("Deny")
+                                        .showCancelButton(true)
+                                        .setCancelText("✖")
+                                        .setConfirmClickListener { sDialog ->
+                                            sDialog.setTitleText("Denied!")
+                                                .setContentText("You have denied that the amount of coconut entered by the collector.")
+                                                .setConfirmText("Ok")
+                                                .showCancelButton(false)
+                                                .setConfirmClickListener {
+                                                    // complete collection with actual amount
+                                                    webSocket.send("${senderId}:Denied:${id}")
+                                                    sDialog.dismiss();
+                                                }
+                                                .changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+                                        }.show()
+
+                                    dialog.dismiss()
+                                }
+
+                                // Create custom theme (optional)
+                                val customTheme = theme.applyStyle(R.style.CustomDialogTheme, false)
+
+                                // Show the dialog with custom theme (optional)
+                                //        dialog.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.popup_background))  // Set custom background (optional)
+                                dialog.show()
+                            }
+                        }
+                    }
+
+                    override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
+                        println("WebSocket closed: $code $reason")
+                        isConnected.set(false)
+                    }
+
+                    override fun onFailure(
+                        webSocket: WebSocket,
+                        t: Throwable,
+                        response: Response?
+                    ) {
+                        println("WebSocket error: $t")
+                        isConnected.set(false)
+                    }
+                }
+            )
         }
-
-        builder.setNegativeButton(negativeButtonText) { dialog, _ ->
-            negativeButtonAction.invoke()
-            dialog.dismiss()
-        }
-
-        val dialog = builder.create()
-        dialog.show()
-
-        // Customize dialog view if needed
-        val textViewMessage = dialog.findViewById<TextView>(android.R.id.message)
-        // You can modify text view properties here if needed
     }
 }

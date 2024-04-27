@@ -1,6 +1,7 @@
 package org.jom.supplier.supply
 
 import android.Manifest
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,13 +18,22 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import okhttp3.ResponseBody
+import okhttp3.WebSocket
+import okhttp3.WebSocketListener
 import org.jom.supplier.AddCookiesInterceptor
 import org.jom.supplier.DashboardActivity
 import org.jom.supplier.Methods
@@ -39,6 +49,7 @@ import retrofit2.http.Query
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+import java.util.concurrent.atomic.AtomicBoolean
 
 interface SupplyApi {
     @GET("JOM_war_exploded/supply-request")
@@ -53,6 +64,7 @@ class ViewSupplyActivity : AppCompatActivity() {
     private lateinit var backButton: ImageView
     private lateinit var jwt: String
     private lateinit var location: String
+    private lateinit var dialog: Dialog
 
     private lateinit var mapView: MapView
     private lateinit var locationManager: LocationManager
@@ -65,6 +77,7 @@ class ViewSupplyActivity : AppCompatActivity() {
     // get bundle instance for send data for next intent
     var extras = Bundle()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         val cookieManager = CookieManager.getInstance()
         val cookies = methods.getAllCookies(cookieManager)
@@ -356,6 +369,148 @@ class ViewSupplyActivity : AppCompatActivity() {
 
                 else -> false
             }
+        }
+
+        //WebSocket
+        var payload = methods.getPayload(jwt);
+
+        // assign values to socket operation variables
+        val senderId = methods.floatToInt(payload["user"])
+
+        runBlocking {
+            val socket = OkHttpClient().newWebSocket(
+                Request.Builder()
+                    .url("ws://10.0.2.2:8090/JOM_war_exploded/verify-amount/${senderId}")
+                    .build(),
+                object : WebSocketListener() {
+                    private val isConnected = AtomicBoolean(false)
+
+                    override fun onOpen(webSocket: WebSocket, response: Response) {
+                        println("WebSocket opened: $response")
+                        isConnected.set(true)
+                        CoroutineScope(Dispatchers.IO).launch {
+                            println("Socket Opened")
+                        }
+                    }
+
+                    override fun onMessage(webSocket: WebSocket, text: String) {
+                        println("WebSocket onMessage: $text")
+                        if (text.isNotEmpty()) {
+                            val arr = text.split(":")
+                            val amount = arr[0]
+                            val id = arr[1].toInt()
+
+                            if (id == this@ViewSupplyActivity.intent.getIntExtra("id", 0)) {
+
+                                runOnUiThread {
+                                    // Initialize the dialog
+                                    dialog = Dialog(
+                                        this@ViewSupplyActivity,
+                                        R.style.CustomDialogTheme
+                                    )  // Apply custom theme (optional)
+                                    dialog.setContentView(R.layout.popup_layout)
+
+                                    // Set title and description (optional)
+                                    val titleTextView = dialog.findViewById<TextView>(R.id.title)
+                                    titleTextView.text = "Collector is waiting for your response"
+                                    val descriptionTextView =
+                                        dialog.findViewById<TextView>(R.id.description)
+                                    descriptionTextView.text =
+                                        "Collected coconut amount for supply S/P/${id} is ${amount}"
+
+                                    println("Collected coconut amount for supply S/P/${id} is ${amount}")
+
+                                    // Get references to buttons
+                                    val positiveButton =
+                                        dialog.findViewById<Button>(R.id.positive_button)
+                                    val negativeButton =
+                                        dialog.findViewById<Button>(R.id.negative_button)
+
+                                    // Set button click listeners
+                                    positiveButton.setOnClickListener {
+                                        // Handle positive button click
+
+                                        SweetAlertDialog(
+                                            this@ViewSupplyActivity,
+                                            SweetAlertDialog.SUCCESS_TYPE
+                                        )
+                                            .setTitleText("Are you sure?")
+                                            .setContentText("You won't be able to revert this!")
+                                            .setConfirmText("Accept")
+                                            .showCancelButton(true)
+                                            .setCancelText("✖")
+                                            .setConfirmClickListener { sDialog ->
+                                                sDialog.setTitleText("Accepted!")
+                                                    .setContentText("You have verified that the amount of coconut entered by the collector is correct.")
+                                                    .setConfirmText("Ok")
+                                                    .showCancelButton(false)
+                                                    .setConfirmClickListener {
+                                                        // complete collection with actual amount
+                                                        webSocket.send("${senderId}:OK:${id}")
+                                                        sDialog.dismiss();
+                                                    }
+                                                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+                                            }.show()
+
+
+                                        dialog.dismiss()
+                                    }
+
+                                    negativeButton.setOnClickListener {
+                                        // Handle negative button click
+
+                                        SweetAlertDialog(
+                                            this@ViewSupplyActivity,
+                                            SweetAlertDialog.SUCCESS_TYPE
+                                        )
+                                            .setTitleText("Are you sure?")
+                                            .setContentText("You won't be able to revert this!")
+                                            .setConfirmText("Deny")
+                                            .showCancelButton(true)
+                                            .setCancelText("✖")
+                                            .setConfirmClickListener { sDialog ->
+                                                sDialog.setTitleText("Denied!")
+                                                    .setContentText("You have denied that the amount of coconut entered by the collector.")
+                                                    .setConfirmText("Ok")
+                                                    .showCancelButton(false)
+                                                    .setConfirmClickListener {
+                                                        // complete collection with actual amount
+                                                        webSocket.send("${senderId}:Denied:${id}")
+                                                        sDialog.dismiss();
+                                                    }
+                                                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+                                            }.show()
+
+                                        dialog.dismiss()
+                                    }
+
+                                    // Create custom theme (optional)
+                                    val customTheme =
+                                        theme.applyStyle(R.style.CustomDialogTheme, false)
+
+                                    // Show the dialog with custom theme (optional)
+                                    //        dialog.window?.setBackgroundDrawable(resources.getDrawable(R.drawable.popup_background))  // Set custom background (optional)
+                                    dialog.show()
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
+                        println("WebSocket closed: $code $reason")
+                        isConnected.set(false)
+                    }
+
+                    override fun onFailure(
+                        webSocket: WebSocket,
+                        t: Throwable,
+                        response: Response?
+                    ) {
+                        println("WebSocket error: $t")
+                        isConnected.set(false)
+                    }
+                }
+            )
         }
     }
 
