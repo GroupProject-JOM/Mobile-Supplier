@@ -172,6 +172,15 @@
                 app:layout_constraintStart_toStartOf="@+id/payment_label"
                 app:layout_constraintTop_toBottomOf="@+id/account_label" />
 
+            <TextView
+                android:id="@+id/account_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/account"
+                app:layout_constraintTop_toBottomOf="@+id/account" />
+
 
             <TextView
                 android:id="@+id/supply_method_label"
@@ -182,8 +191,8 @@
                 android:text="Supply Methods"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/payment_label"
-                app:layout_constraintTop_toBottomOf="@+id/account" />
+                app:layout_constraintStart_toStartOf="@+id/account_error"
+                app:layout_constraintTop_toBottomOf="@+id/account_error" />
 
             <Spinner
                 android:id="@+id/supply_method"
@@ -198,8 +207,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/profileLabel"
-                android:layout_marginTop="12dp"
-                android:text="Supply Methods"
+                android:layout_marginTop="15dp"
+                android:text="Estate Location"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/supply_method_label"
@@ -213,6 +222,15 @@
                 app:layout_constraintStart_toStartOf="@+id/location_label"
                 app:layout_constraintTop_toBottomOf="@+id/location_label" />
 
+            <TextView
+                android:id="@+id/location_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/location"
+                app:layout_constraintTop_toBottomOf="@+id/location" />
+
             <Button
                 android:id="@+id/save"
                 android:layout_width="wrap_content"
@@ -221,8 +239,8 @@
                 android:text="Save"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/location"
-                app:layout_constraintTop_toBottomOf="@+id/location" />
+                app:layout_constraintStart_toStartOf="@+id/location_error"
+                app:layout_constraintTop_toBottomOf="@+id/location_error" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
