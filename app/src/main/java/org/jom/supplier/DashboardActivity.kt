@@ -291,7 +291,7 @@ class DashboardActivity : AppCompatActivity() {
         rejectedCollectionsAdapter = CollectionsAdapter(rejectedCollectionItems)
         recycleViewRejected.adapter = rejectedCollectionsAdapter
 
-// mid nav handle
+        // mid nav handle
         var ongoing: Button = findViewById(R.id.ongoing)
         var completed: Button = findViewById(R.id.completed)
         var rejected: Button = findViewById(R.id.rejected)
