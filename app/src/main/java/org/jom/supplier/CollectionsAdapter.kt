@@ -1,6 +1,9 @@
 package org.jom.supplier
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,38 +54,28 @@ class CollectionsAdapter(private val collectionItems: List<CollectionItem>) :
         holder.statusButton.setText(currentItem.status.capitalize())
 
         if (currentItem.method == "yard") {
-            holder.collectionPaymentIcon.setImageResource(R.drawable.icon_droppin)
+            holder.collectionPaymentIcon.setImageResource(R.drawable.icon_truck)
         }
 
-        if (currentItem.status == "pending") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightSidebarColor
-                )
-            )
-        } else if (currentItem.status == "accept") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightAcceptYellow
-                )
-            )
-        } else if (currentItem.status == "ready") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightCompletedGreen
-                )
-            )
-        } else if (currentItem.status == "rejected") {
-            holder.statusButton.setBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.lightRejectRed
-                )
-            )
+        val backgroundColor = when (currentItem.status) {
+            "Pending" -> ContextCompat.getColor(holder.itemView.context, R.color.lightSidebarColor)
+            "Accepted" -> ContextCompat.getColor(holder.itemView.context, R.color.lightAcceptYellow)
+            "Ready" -> ContextCompat.getColor(holder.itemView.context, R.color.lightCompletedGreen)
+            "Paid" -> ContextCompat.getColor(holder.itemView.context, R.color.lightCompletedGreen)
+            "Rejected" -> ContextCompat.getColor(holder.itemView.context, R.color.lightRejectRed)
+            else -> ContextCompat.getColor(holder.itemView.context, R.color.lightSidebarColor)
         }
+
+        val backgroundDrawable = holder.statusButton.background
+
+// Apply the background color
+        holder.statusButton.setBackgroundColor(backgroundColor)
+
+// Apply tint color to the background drawable
+        val tint = backgroundColor // Tint color same as background color
+        backgroundDrawable.setColorFilter(tint, PorterDuff.Mode.MULTIPLY)
+
+
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ViewSupplyActivity::class.java)
