@@ -24,7 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:text="Edit Collection"
                 android:textColor="#000000"
                 android:textSize="24sp"
@@ -35,9 +35,10 @@
 
             <TextView
                 android:id="@+id/count_label"
+                style="@style/profileLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:text="Coconut Amount"
                 android:textColor="#000000"
                 android:textSize="16sp"
@@ -45,24 +46,34 @@
                 app:layout_constraintTop_toBottomOf="@+id/edit_request" />
 
             <EditText
-                android:id="@+id/estate_area"
+                android:id="@+id/coco_amount"
                 style="@style/supplyInput"
                 android:ems="10"
                 android:inputType="text"
                 app:layout_constraintStart_toStartOf="@+id/count_label"
                 app:layout_constraintTop_toBottomOf="@+id/count_label" />
 
+            <TextView
+                android:id="@+id/amount_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/coco_amount" />
+
 
             <TextView
                 android:id="@+id/date_label"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
                 android:text="Pickup Date"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/count_label"
-                app:layout_constraintTop_toBottomOf="@+id/estate_area" />
+                app:layout_constraintTop_toBottomOf="@+id/amount_error" />
 
             <EditText
                 android:id="@+id/date"
@@ -71,18 +82,27 @@
                 android:inputType="date"
                 app:layout_constraintStart_toStartOf="@+id/date_label"
                 app:layout_constraintTop_toBottomOf="@+id/date_label" />
+            <TextView
+                android:id="@+id/date_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/date" />
 
 
             <TextView
                 android:id="@+id/time_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
                 android:text="Pickup Time"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/date_label"
-                app:layout_constraintTop_toBottomOf="@+id/date" />
+                app:layout_constraintTop_toBottomOf="@+id/date_error" />
 
             <EditText
                 android:id="@+id/time"
@@ -92,46 +112,124 @@
                 app:layout_constraintStart_toStartOf="@+id/time_label"
                 app:layout_constraintTop_toBottomOf="@+id/time_label" />
 
+            <TextView
+                android:id="@+id/time_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/time" />
+
+
 
             <TextView
                 android:id="@+id/payment_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
                 android:text="Paymment Method"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/time_label"
-                app:layout_constraintTop_toBottomOf="@+id/time" />
+                app:layout_constraintTop_toBottomOf="@+id/time_error" />
 
 
-            <EditText
+<!--            <EditText-->
+<!--                android:id="@+id/payment"-->
+<!--                style="@style/supplyInput"-->
+<!--                android:ems="10"-->
+<!--                android:inputType="text"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/time"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/payment_label" />-->
+
+            <Spinner
                 android:id="@+id/payment"
                 style="@style/supplyInput"
-                android:ems="10"
-                android:inputType="text"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
                 app:layout_constraintStart_toStartOf="@+id/time"
                 app:layout_constraintTop_toBottomOf="@+id/payment_label" />
 
             <TextView
-                android:id="@+id/supply_method_label"
+                android:id="@+id/account_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Supply Methods"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:text="Bank Account"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/payment_label"
                 app:layout_constraintTop_toBottomOf="@+id/payment" />
 
-            <EditText
-                android:id="@+id/account_name"
+            <Spinner
+                android:id="@+id/account"
                 style="@style/supplyInput"
-                android:ems="10"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="@+id/payment"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/payment_label"
+                app:layout_constraintTop_toBottomOf="@+id/account_label" />
+
+            <TextView
+                android:id="@+id/account_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/account"
+                app:layout_constraintTop_toBottomOf="@+id/account" />
+
+
+            <TextView
+                android:id="@+id/supply_method_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:text="Supply Methods"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/account_error"
+                app:layout_constraintTop_toBottomOf="@+id/account_error" />
+
+            <Spinner
+                android:id="@+id/supply_method"
+                style="@style/supplyInput"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/supply_method_label"
                 app:layout_constraintTop_toBottomOf="@+id/supply_method_label" />
 
+            <TextView
+                android:id="@+id/location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="15dp"
+                android:text="Estate Location"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/supply_method_label"
+                app:layout_constraintTop_toBottomOf="@+id/supply_method" />
+
+            <Spinner
+                android:id="@+id/location"
+                style="@style/supplyInput"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/location_label"
+                app:layout_constraintTop_toBottomOf="@+id/location_label" />
+
+            <TextView
+                android:id="@+id/location_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/location"
+                app:layout_constraintTop_toBottomOf="@+id/location" />
 
             <Button
                 android:id="@+id/save"
@@ -141,8 +239,8 @@
                 android:text="Save"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/account_name"
-                app:layout_constraintTop_toBottomOf="@+id/account_name" />
+                app:layout_constraintStart_toStartOf="@+id/location_error"
+                app:layout_constraintTop_toBottomOf="@+id/location_error" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
