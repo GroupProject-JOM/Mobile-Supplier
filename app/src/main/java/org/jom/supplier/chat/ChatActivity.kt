@@ -62,9 +62,6 @@ class ChatActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chat)
-
         val cookieManager = CookieManager.getInstance()
         val cookies = methods.getAllCookies(cookieManager)
 
@@ -145,6 +142,15 @@ class ChatActivity : AppCompatActivity() {
                 Log.d("TAG", "An error occurred: $t")
             }
         })
+
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_chat)
+
+        // recycle views handle
+        recycleViewChat = findViewById(R.id.recycleViewChat)
+        recycleViewChat.layoutManager = LinearLayoutManager(this)
+        chatAdapter = ChatAdapter(chatItems)
+        recycleViewChat.adapter = chatAdapter
 
         //WebSocket
         var payload = methods.getPayload(jwt);
@@ -253,11 +259,5 @@ class ChatActivity : AppCompatActivity() {
         //back
         backButton = findViewById(R.id.back_button)
         backButton.setOnClickListener { this.onBackPressed() }
-
-        // recycle views handle
-        recycleViewChat = findViewById(R.id.recycleViewChat)
-        recycleViewChat.layoutManager = LinearLayoutManager(this)
-        chatAdapter = ChatAdapter(chatItems)
-        recycleViewChat.adapter = chatAdapter
     }
 }
