@@ -46,7 +46,7 @@ class ChatAdapter(private val chatItems: List<ChatItem>) :
         holder.message.text = currentItem.content
 
         // Set the background color based on message type
-        val backgroundColor = if (isSent) R.color.lightSidebarColor else R.color.lightShadowColor
+        val backgroundColor = if (isSent) R.drawable.sent_msg else R.drawable.recieved_msg
         holder.itemView.setBackgroundResource(backgroundColor)
 
         // Set margins based on message type

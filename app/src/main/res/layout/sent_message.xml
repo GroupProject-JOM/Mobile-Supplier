@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="120dp"
     android:layout_marginEnd="20dp"
-    android:background="@color/lightSidebarColor"
+    android:background="@drawable/sent_msg"
     android:padding="12dp">
 
     <TextView
