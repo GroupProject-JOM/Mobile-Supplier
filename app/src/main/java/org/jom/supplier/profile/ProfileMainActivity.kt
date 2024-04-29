@@ -93,7 +93,7 @@ class ProfileMainActivity : AppCompatActivity() {
 
             val cookieManager = CookieManager.getInstance()
             val cookieName = "jwt"
-            val domain = "10.0.2.2"
+            val domain = "jom-dev.duckdns.org"
             val path = "/"
 
             // Expire the cookie by setting its expiry date in the past

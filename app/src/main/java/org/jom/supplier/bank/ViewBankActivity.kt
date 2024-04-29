@@ -32,14 +32,14 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface AccountApi {
-    @GET("JOM_war_exploded/account")
+    @GET("api/account")
     fun getData(
         @Query("id") id: Int,
     ): Call<ResponseBody>
 }
 
 interface AccountDeleteApi {
-    @DELETE("JOM_war_exploded/account")
+    @DELETE("api/account")
     fun deleteData(
         @Query("id") id: Int,
     ): Call<ResponseBody>

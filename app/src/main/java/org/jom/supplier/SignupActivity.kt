@@ -35,7 +35,7 @@ data class signUpFormData(
 )
 
 interface SignupApi {
-    @POST("JOM_war_exploded/signup")
+    @POST("api/signup")
     fun signup(@Body formData: signUpFormData): Call<ResponseBody>
 }
 

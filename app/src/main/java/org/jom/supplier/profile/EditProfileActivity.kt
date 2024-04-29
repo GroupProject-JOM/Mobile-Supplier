@@ -42,7 +42,7 @@ data class EditProfileFormData(
 )
 
 interface EditProfileApi {
-    @PUT("JOM_war_exploded/profile")
+    @PUT("api/profile")
     fun editProfile(@Body formData: EditProfileFormData): Call<ResponseBody>
 }
 

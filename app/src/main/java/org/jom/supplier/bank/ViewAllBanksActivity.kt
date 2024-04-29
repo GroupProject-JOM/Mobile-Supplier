@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface AccountsApi {
-    @GET("JOM_war_exploded/accounts")
+    @GET("api/accounts")
     fun getData(): Call<ResponseBody>
 }
 

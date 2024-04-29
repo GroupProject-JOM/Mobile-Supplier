@@ -40,7 +40,7 @@ data class AddEstateFormData(
 )
 
 interface AddEstateApi {
-    @POST("JOM_war_exploded/estate")
+    @POST("api/estate")
     fun addEstate(@Body formData: AddEstateFormData): Call<ResponseBody>
 }
 

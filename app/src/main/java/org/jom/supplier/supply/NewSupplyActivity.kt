@@ -43,7 +43,7 @@ data class NewSupplyFormData(
 )
 
 interface NewSupplyApi {
-    @POST("JOM_war_exploded/collection")
+    @POST("api/collection")
     fun newSupply(@Body formData: NewSupplyFormData): Call<ResponseBody>
 }
 

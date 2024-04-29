@@ -39,14 +39,14 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface EstateApi {
-    @GET("JOM_war_exploded/estate")
+    @GET("api/estate")
     fun getData(
         @Query("id") id: Int,
     ): Call<ResponseBody>
 }
 
 interface EstateDeleteApi {
-    @DELETE("JOM_war_exploded/estate")
+    @DELETE("api/estate")
     fun deleteData(
         @Query("id") id: Int,
     ): Call<ResponseBody>

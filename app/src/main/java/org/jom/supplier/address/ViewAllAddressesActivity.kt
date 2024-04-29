@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface AddressApi {
-    @GET("JOM_war_exploded/estates")
+    @GET("api/estates")
     fun getData(): Call<ResponseBody>
 }
 

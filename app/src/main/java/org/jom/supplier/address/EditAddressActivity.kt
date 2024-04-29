@@ -40,7 +40,7 @@ data class EditEstateFormData(
 )
 
 interface EditEstateApi {
-    @PUT("JOM_war_exploded/estate")
+    @PUT("api/estate")
     fun editEstate(@Body formData: EditEstateFormData): Call<ResponseBody>
 }
 

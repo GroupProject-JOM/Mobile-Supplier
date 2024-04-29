@@ -48,7 +48,7 @@ data class PickupCashFormData(
 )
 
 interface PickupCashApi {
-    @POST("JOM_war_exploded/pickup")
+    @POST("api/pickup")
     fun pickupCash(@Body formData: PickupCashFormData): Call<ResponseBody>
 }
 

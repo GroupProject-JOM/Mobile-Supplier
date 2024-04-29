@@ -52,7 +52,7 @@ import java.time.temporal.ChronoUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 interface SupplyApi {
-    @GET("JOM_war_exploded/supply-request")
+    @GET("api/supply-request")
     fun getData(
         @Query("id") id: Int,
     ): Call<ResponseBody>

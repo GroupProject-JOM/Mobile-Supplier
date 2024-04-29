@@ -41,7 +41,7 @@ data class YardCashFormData(
 )
 
 interface YardCashApi {
-    @POST("JOM_war_exploded/yard")
+    @POST("api/yard")
     fun yardCash(@Body formData: YardCashFormData): Call<ResponseBody>
 }
 

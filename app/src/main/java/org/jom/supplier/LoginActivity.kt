@@ -30,7 +30,7 @@ data class signInFormData(
 )
 
 interface SigninApi {
-    @POST("JOM_war_exploded/signin")
+    @POST("api/signin")
     fun signin(@Body formData: signInFormData): Call<ResponseBody>
 }
 
@@ -185,7 +185,7 @@ class LoginActivity : AppCompatActivity() {
                                 val cookieManager = CookieManager.getInstance()
                                 val cookieName = "jwt"
                                 val cookieValue = jwt
-                                val domain = "10.0.2.2"
+                                val domain = "jom-dev.duckdns.org"
                                 val path = "/"
 
                                 // Create a cookie string

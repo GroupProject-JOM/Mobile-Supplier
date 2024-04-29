@@ -43,7 +43,7 @@ import java.time.format.DateTimeFormatter
 import java.util.concurrent.atomic.AtomicBoolean
 
 interface ChatApi {
-    @GET("JOM_war_exploded/chat")
+    @GET("api/chat")
     fun getData(
         @Query("to") id: Int,
     ): Call<ResponseBody>
@@ -161,7 +161,7 @@ class ChatActivity : AppCompatActivity() {
         runBlocking {
             val socket = OkHttpClient().newWebSocket(
                 Request.Builder()
-                    .url("ws://10.0.2.2:8090/JOM_war_exploded/chat/${senderId}")
+                    .url("wss://jom-dev.duckdns.org/api/chat/${senderId}")
                     .build(),
                 object : WebSocketListener() {
                     private val isConnected = AtomicBoolean(false)

@@ -43,7 +43,7 @@ import okhttp3.WebSocketListener
 import java.util.concurrent.atomic.AtomicBoolean
 
 interface DashboardApi {
-    @GET("JOM_war_exploded/collections")
+    @GET("api/collections")
     fun getData(): Call<ResponseBody>
 }
 
@@ -385,7 +385,7 @@ class DashboardActivity : AppCompatActivity() {
         runBlocking {
             val socket = OkHttpClient().newWebSocket(
                 Request.Builder()
-                    .url("ws://10.0.2.2:8090/JOM_war_exploded/verify-amount/${senderId}")
+                    .url("wss://jom-dev.duckdns.org/api/verify-amount/${senderId}")
                     .build(),
                 object : WebSocketListener() {
                     private val isConnected = AtomicBoolean(false)

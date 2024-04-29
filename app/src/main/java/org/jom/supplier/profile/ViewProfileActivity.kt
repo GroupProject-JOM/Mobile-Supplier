@@ -25,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface ProfileApi {
-    @GET("JOM_war_exploded/profile")
+    @GET("api/profile")
     fun getData(): Call<ResponseBody>
 }
 

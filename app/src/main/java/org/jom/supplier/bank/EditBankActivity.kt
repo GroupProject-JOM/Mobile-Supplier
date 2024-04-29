@@ -43,7 +43,7 @@ data class EditAccountFormData(
 )
 
 interface EditAccountApi {
-    @PUT("JOM_war_exploded/account")
+    @PUT("api/account")
     fun editAccount(@Body formData: EditAccountFormData): Call<ResponseBody>
 }
 

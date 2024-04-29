@@ -42,7 +42,7 @@ data class AddAccountFormData(
 )
 
 interface AddAccountApi {
-    @POST("JOM_war_exploded/account")
+    @POST("api/account")
     fun addAccount(@Body formData: AddAccountFormData): Call<ResponseBody>
 }
 

@@ -50,7 +50,7 @@ data class PickupBankFormData(
 )
 
 interface PickupBankApi {
-    @POST("JOM_war_exploded/pickup")
+    @POST("api/pickup")
     fun pickupBank(@Body formData: PickupBankFormData): Call<ResponseBody>
 }
 

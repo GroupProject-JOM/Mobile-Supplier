@@ -48,7 +48,7 @@ data class YardBankFormData(
 )
 
 interface YardBankApi {
-    @POST("JOM_war_exploded/yard")
+    @POST("api/yard")
     fun yardBank(@Body formData: YardBankFormData): Call<ResponseBody>
 }
 

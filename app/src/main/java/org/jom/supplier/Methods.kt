@@ -18,7 +18,7 @@ import android.graphics.Color
 import androidx.core.app.NotificationCompat
 
 class Methods {
-    private val backendUrl = "http://10.0.2.2:8090/"
+    private val backendUrl = "https://jom-dev.duckdns.org/"
     private val artifact = "JOM_war_exploded"
 
     fun getBackendUrl(): String {
@@ -31,7 +31,7 @@ class Methods {
 
     fun getAllCookies(cookieManager: CookieManager): List<Pair<String, String>> {
         // Get all cookies
-        val allCookies = cookieManager.getCookie("10.0.2.2")
+        val allCookies = cookieManager.getCookie("jom-dev.duckdns.org")
 
         // Initialize a list to store the parsed cookies
         val parsedCookies = mutableListOf<Pair<String, String>>()
