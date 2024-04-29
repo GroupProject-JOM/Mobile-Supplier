@@ -1,1 +1,1 @@
-<a href="https://github.com/GroupProject-JOM/Mobile-Supplier/releases/download/v0.1.0/JOM.apk" target="_blank"> <img src="https://github.com/GroupProject-JOM/Frontend-web-/blob/main/common/img/supplier_qr.png" height="200px"></a>
+<a href="https://github.com/GroupProject-JOM/Mobile-Supplier/releases/download/v0.1.1/JOM.apk" target="_blank"> <img src="https://github.com/GroupProject-JOM/Frontend-web-/blob/main/common/img/supplier_qr.png" height="200px"></a>
