@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerificationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            style="@style/backButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/icon_chevron"  />
+
+        <TextView
+            android:id="@+id/page_title"
+            style="@style/pageTitle"
+            android:text="Verify Email"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/topBarShadow"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/bottom_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topBarShadow">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/email_text"
+                    style="@style/profileLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="45dp"
+                    android:text="Send OTP to "
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </TextView>
+                    <TextView
+                        android:id="@+id/email"
+                        style="@style/profileLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="saumya05@gmail.com"
+                        android:layout_marginTop="45dp"
+                        app:layout_constraintStart_toEndOf="@id/email_text"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/wrong_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wrong email address?"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="45dp"
+                    app:layout_constraintStart_toStartOf="@id/linearLayout1"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayout1">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/email_input"
+                    style="@style/editProfileInput"
+                    android:ems="10"
+                    android:inputType="text"
+                    app:layout_constraintStart_toStartOf="@+id/wrong_email"
+                    app:layout_constraintTop_toBottomOf="@+id/wrong_email" />
+
+                <TextView
+
+                    android:id="@+id/email_error"
+                    style="@style/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="error"
+                    app:layout_constraintStart_toStartOf="@id/email_input"
+                    app:layout_constraintTop_toBottomOf="@id/email_input"/>
+
+                <Button
+                    android:id="@+id/send"
+                    style="@style/buttonSimple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Send OTP"
+                    app:layout_constraintStart_toStartOf="@id/email_error"
+                    app:layout_constraintTop_toBottomOf="@id/email_error"/>
+
+                <TextView
+                    android:id="@+id/otp_label"
+                    style="@style/profileLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:text="Enter OTP"
+                    app:layout_constraintStart_toStartOf="@id/send"
+                    app:layout_constraintTop_toBottomOf="@id/send"/>
+
+                <EditText
+                    android:id="@+id/otp"
+                    style="@style/editProfileInput"
+                    android:ems="10"
+                    android:inputType="text"
+                    app:layout_constraintStart_toStartOf="@+id/otp_label"
+                    app:layout_constraintTop_toBottomOf="@+id/otp_label" />
+                <TextView
+
+                    android:id="@+id/otp_error"
+                    style="@style/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="error"
+                    app:layout_constraintStart_toStartOf="@id/otp"
+                    app:layout_constraintTop_toBottomOf="@id/otp"/>
+
+
+                <Button
+                    android:id="@+id/verify"
+                    style="@style/buttonSimple"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Verify"
+                    app:layout_constraintStart_toStartOf="@id/otp_error"
+                    app:layout_constraintTop_toBottomOf="@id/otp_error"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

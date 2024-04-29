@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".supply.EditSupplyActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="40dp">
+
+            <TextView
+                android:id="@+id/edit_request"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="30dp"
+                android:text="Edit Collection"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/count_label"
+                style="@style/profileLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Coconut Amount"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/edit_request"
+                app:layout_constraintTop_toBottomOf="@+id/edit_request" />
+
+            <EditText
+                android:id="@+id/coco_amount"
+                style="@style/supplyInput"
+                android:ems="10"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/count_label" />
+
+            <TextView
+                android:id="@+id/amount_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/coco_amount" />
+
+
+            <TextView
+                android:id="@+id/date_label"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pickup Date"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/amount_error" />
+
+            <EditText
+                android:id="@+id/date"
+                style="@style/supplyInput"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintStart_toStartOf="@+id/date_label"
+                app:layout_constraintTop_toBottomOf="@+id/date_label" />
+            <TextView
+                android:id="@+id/date_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/date" />
+
+
+            <TextView
+                android:id="@+id/time_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:text="Pickup Time"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/date_label"
+                app:layout_constraintTop_toBottomOf="@+id/date_error" />
+
+            <EditText
+                android:id="@+id/time"
+                style="@style/supplyInput"
+                android:ems="10"
+                android:inputType="time"
+                app:layout_constraintStart_toStartOf="@+id/time_label"
+                app:layout_constraintTop_toBottomOf="@+id/time_label" />
+
+            <TextView
+                android:id="@+id/time_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/count_label"
+                app:layout_constraintTop_toBottomOf="@+id/time" />
+
+
+
+            <TextView
+                android:id="@+id/payment_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:text="Paymment Method"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/time_label"
+                app:layout_constraintTop_toBottomOf="@+id/time_error" />
+
+
+<!--            <EditText-->
+<!--                android:id="@+id/payment"-->
+<!--                style="@style/supplyInput"-->
+<!--                android:ems="10"-->
+<!--                android:inputType="text"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/time"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/payment_label" />-->
+
+            <Spinner
+                android:id="@+id/payment"
+                style="@style/supplyInput"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/time"
+                app:layout_constraintTop_toBottomOf="@+id/payment_label" />
+
+            <TextView
+                android:id="@+id/account_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:text="Bank Account"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/payment_label"
+                app:layout_constraintTop_toBottomOf="@+id/payment" />
+
+            <Spinner
+                android:id="@+id/account"
+                style="@style/supplyInput"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/payment_label"
+                app:layout_constraintTop_toBottomOf="@+id/account_label" />
+
+            <TextView
+                android:id="@+id/account_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/account"
+                app:layout_constraintTop_toBottomOf="@+id/account" />
+
+
+            <TextView
+                android:id="@+id/supply_method_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="12dp"
+                android:text="Supply Methods"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/account_error"
+                app:layout_constraintTop_toBottomOf="@+id/account_error" />
+
+            <Spinner
+                android:id="@+id/supply_method"
+                style="@style/supplyInput"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/supply_method_label"
+                app:layout_constraintTop_toBottomOf="@+id/supply_method_label" />
+
+            <TextView
+                android:id="@+id/location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/profileLabel"
+                android:layout_marginTop="15dp"
+                android:text="Estate Location"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/supply_method_label"
+                app:layout_constraintTop_toBottomOf="@+id/supply_method" />
+
+            <Spinner
+                android:id="@+id/location"
+                style="@style/supplyInput"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                app:layout_constraintStart_toStartOf="@+id/location_label"
+                app:layout_constraintTop_toBottomOf="@+id/location_label" />
+
+            <TextView
+                android:id="@+id/location_error"
+                style="@style/error_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="error"
+                app:layout_constraintStart_toStartOf="@+id/location"
+                app:layout_constraintTop_toBottomOf="@+id/location" />
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="43dp"
+                android:layout_marginTop="30dp"
+                android:text="Save"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/location_error"
+                app:layout_constraintTop_toBottomOf="@+id/location_error" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            style="@style/backButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/icon_chevron" />
+
+        <TextView
+            android:id="@+id/page_title"
+            style="@style/pageTitle"
+            android:text="Collection ID 001"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back_button"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <View
+        android:id="@+id/bottomNavContainer"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/bottom_navigation"
+        android:background="@drawable/shadow"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/BottomNavHeight"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/nav_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

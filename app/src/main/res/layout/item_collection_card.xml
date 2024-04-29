@@ -33,7 +33,7 @@
             android:layout_width="20dp"
             android:layout_height="20sp"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/icon_cash"
+            android:src="@drawable/icon_droppin"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/time"
             app:tint="@color/lightSidebarColor" />

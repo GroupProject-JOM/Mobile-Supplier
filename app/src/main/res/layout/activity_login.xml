@@ -78,9 +78,9 @@
         android:id="@+id/usernameError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/lightRejectRed"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@color/lightRejectRed"
         app:layout_constraintStart_toStartOf="@+id/username_input"
         app:layout_constraintTop_toBottomOf="@+id/username_input" />
 
@@ -88,10 +88,37 @@
         android:id="@+id/passwordError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/lightRejectRed"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@color/lightRejectRed"
         app:layout_constraintStart_toStartOf="@+id/password_input"
         app:layout_constraintTop_toBottomOf="@+id/password_input" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New to JOM ?  " />
+
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Create an Account"
+            android:textColor="#4C3581"
+            android:textStyle="bold|italic" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
