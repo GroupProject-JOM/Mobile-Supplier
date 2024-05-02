@@ -56,4 +56,25 @@ This application is designed to streamline the interaction between coconut suppl
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0.
+This project is licensed under the GNU General [Public License v3.0](LICENSE).
+
+---
+
+
+<p align="center">
+    <a href="https://github.com/GroupProject-JOM/Mobile-Supplier/blob/main/LICENSE">
+      <img alt="License: GNU" src="https://img.shields.io/badge/License-GPLv3-blue.svg">
+   </a>
+    <a href="https://github.com/GroupProject-JOM/Mobile-Supplier">
+      <img alt="Hits" src="https://hits.sh/github.com/GroupProject-JOM/Mobile-Supplier.svg?label=Views"/>
+    </a>
+    <a href="https://github.com/GroupProject-JOM/Mobile-Supplier/graphs/contributors">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/GroupProject-JOM/Mobile-Supplier" />
+    </a>
+    <a href="https://github.com/GroupProject-JOM/Mobile-Supplier/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/GroupProject-JOM/Mobile-Supplier?color=0088ff" />
+    </a>
+    <a href="https://github.com/GroupProject-JOM/Mobile-Supplier/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/GroupProject-JOM/Mobile-Supplier?color=0088ff" />
+    </a>
+  </p>
